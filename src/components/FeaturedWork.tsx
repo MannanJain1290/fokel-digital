@@ -13,6 +13,7 @@ const projects = [
     image: work1,
     title: "Genes Lecoanet Hemant",
     category: "Social Media Marketing",
+    link: "/work/genes-lecoanet-hemant",
   },
   {
     image: work2,
