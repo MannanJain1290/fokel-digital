@@ -5,7 +5,7 @@ import { useRef } from "react";
 const stats = [
   { number: "20+", label: "Projects Delivered" },
   { number: "100%", label: "Client Satisfaction" },
-  { number: "5+", label: "Years of Experience" },
+  { number: "5+", label: "Sectors Catered" },
 ];
 
 const About = () => {
