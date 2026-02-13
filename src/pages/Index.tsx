@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Marquee from "@/components/Marquee";
+import TrustedBy from "@/components/TrustedBy";
 import Services from "@/components/Services";
 import FeaturedWork from "@/components/FeaturedWork";
 import Contact from "@/components/Contact";
@@ -12,7 +12,7 @@ const Index = () => {
     <div className="bg-background">
       <Navbar />
       <Hero />
-      <Marquee />
+      <TrustedBy />
       <About />
       <Services />
       <FeaturedWork />
