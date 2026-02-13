@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -17,6 +18,7 @@ const projects = [
     image: work2,
     title: "ITA-AITES WTC 2026",
     category: "Event Marketing & Branding",
+    link: "/work/wtc-2026",
   },
   {
     image: work3,
@@ -74,14 +76,8 @@ const ProjectCard = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="group cursor-pointer"
-    >
+  const content = (
+    <>
       <div className="relative overflow-hidden bg-secondary aspect-[4/3]">
         <motion.img
           src={project.image}
@@ -103,6 +99,21 @@ const ProjectCard = ({
           {project.category}
         </p>
       </div>
+    </>
+  );
+
+  const Wrapper = project.link ? Link : "div";
+  const wrapperProps = project.link ? { to: project.link } : {};
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.15 }}
+      className="group cursor-pointer"
+    >
+      <Wrapper {...(wrapperProps as any)}>{content}</Wrapper>
     </motion.div>
   );
 };
