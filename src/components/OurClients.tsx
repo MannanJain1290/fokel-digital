@@ -31,7 +31,7 @@ const OurClients = () => {
               <img
                 src={client.src}
                 alt={client.alt}
-                className="max-h-32 w-auto object-contain hover:scale-110 transition-transform duration-300"
+                className="max-h-40 w-auto object-contain hover:scale-110 transition-transform duration-300"
               />
             </div>
           ))}
