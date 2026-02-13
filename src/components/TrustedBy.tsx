@@ -1,28 +1,31 @@
+import genesLogo from "@/assets/clients/genes-lecoanet.png";
+import wtcLogo from "@/assets/clients/wtc-2026.webp";
+import hmoLogo from "@/assets/clients/hmo-architects.png";
+
 const clients = [
-  { name: "Acme Corp", initials: "AC" },
-  { name: "Nova Studios", initials: "NS" },
-  { name: "Vertex Labs", initials: "VL" },
-  { name: "Zenith Co", initials: "ZC" },
-  { name: "Pulse Media", initials: "PM" },
+  { name: "Genes Lecoanet Hemant", logo: genesLogo },
+  { name: "ITA-AITES WTC 2026", logo: wtcLogo },
+  { name: "HMO Architects", logo: hmoLogo },
 ];
 
 const TrustedBy = () => {
   return (
-    <section className="py-12 bg-muted/50">
+    <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-6">
-        <p className="text-center text-sm uppercase tracking-[0.2em] text-muted-foreground mb-8">
-          Trusted By
+        <p className="text-center text-sm uppercase tracking-[0.2em] text-muted-foreground mb-10">
+          Our Clients
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
           {clients.map((client) => (
             <div
               key={client.name}
-              className="flex items-center gap-2 text-muted-foreground/60 hover:text-foreground transition-colors duration-300"
+              className="grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-xs font-bold tracking-wide">
-                {client.initials}
-              </div>
-              <span className="text-sm font-semibold tracking-wide">{client.name}</span>
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="h-12 md:h-16 w-auto object-contain"
+              />
             </div>
           ))}
         </div>
