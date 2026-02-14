@@ -1,4 +1,5 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const About = () => {
@@ -6,24 +7,24 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 lg:py-40 bg-background" ref={ref}>
+    <section id="about" className="py-16 bg-background" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-8">
-          {/* Left - takes 5 cols */}
-          <div className="lg:col-span-5">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left */}
+          <div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="text-[11px] font-heading font-medium tracking-[0.4em] uppercase text-accent mb-8"
+              className="text-sm font-medium tracking-[0.3em] uppercase text-accent mb-6"
             >
               Who We Are
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1] tracking-[-0.02em] text-foreground"
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-foreground"
             >
               Bold ideas,
               <br />
@@ -33,26 +34,29 @@ const About = () => {
             </motion.h2>
           </div>
 
-          {/* Right - takes 7 cols */}
-          <div className="lg:col-span-7 flex flex-col justify-end">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
+          {/* Right */}
+          <div className="flex flex-col justify-center">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed"
             >
-              <p className="text-base md:text-lg text-muted-foreground leading-[1.8] font-body">
-                At Fokel, our mission is to bring your business into the market focus 
-                with a bold, disruptive edge. We combine strategic thinking with creative 
-                excellence to craft digital experiences that captivate audiences and drive 
-                measurable results.
-              </p>
-              <div className="mt-8 h-px w-full bg-border" />
-              <p className="mt-8 text-base md:text-lg text-muted-foreground leading-[1.8] font-body">
-                Our vision is to redefine the digital landscape by setting a new gold standard 
-                for B2B growth, where every brand we touch becomes the undisputed authority 
-                in its niche.
-              </p>
-            </motion.div>
+              At Fokel, our mission is to bring your business into the market focus 
+              with a bold, disruptive edge. We combine strategic thinking with creative 
+              excellence to craft digital experiences that captivate audiences and drive 
+              measurable results.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed"
+            >
+              Our vision is to redefine the digital landscape by setting a new gold standard 
+              for B2B growth, where every brand we touch becomes the undisputed authority 
+              in its niche.
+            </motion.p>
           </div>
         </div>
       </div>

@@ -1,5 +1,3 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import inventeron from "@/assets/clients/inventeron.jpg";
 import onsurity from "@/assets/clients/onsurity.jpg";
 import homelane from "@/assets/clients/homelane.webp";
@@ -17,35 +15,25 @@ const clients = [
 ];
 
 const OurClients = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
-    <section className="py-16 bg-background" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-[11px] font-heading font-medium tracking-[0.4em] uppercase text-muted-foreground text-center mb-14"
-        >
-          Trusted By
-        </motion.p>
+    <section className="py-10 bg-background">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground text-center mb-16">
+          Trusted by
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
           {clients.map((client, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex items-center justify-center p-4"
+              className="flex items-center justify-center p-4 opacity-0 animate-fade-up"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               <img
                 src={client.src}
                 alt={client.alt}
-                className="max-h-36 w-auto object-contain hover:scale-105 transition-transform duration-500"
+                className="max-h-40 w-auto object-contain hover:scale-110 transition-transform duration-300"
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
