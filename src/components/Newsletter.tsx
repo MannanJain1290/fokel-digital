@@ -76,7 +76,7 @@ const Newsletter = () => {
                 />
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground px-8 py-5 text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity w-full md:w-auto"
+                  className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground px-8 py-5 text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-opacity w-full md:w-auto rounded-lg"
                 >
                   Subscribe
                   <ArrowUpRight className="w-4 h-4" />
