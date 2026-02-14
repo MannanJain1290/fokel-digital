@@ -9,15 +9,15 @@ const phrases = [
 
 const Marquee = () => {
   return (
-    <section className="py-12 bg-primary overflow-hidden">
+    <section className="py-6 bg-foreground overflow-hidden">
       <div className="animate-marquee flex whitespace-nowrap">
         {[...phrases, ...phrases, ...phrases, ...phrases].map((phrase, i) => (
           <span
             key={i}
-            className="text-primary-foreground text-lg md:text-xl font-semibold uppercase tracking-[0.2em] mx-8 flex items-center gap-8"
+            className="text-background text-sm md:text-base font-heading font-medium uppercase tracking-[0.25em] mx-8 flex items-center gap-8"
           >
             {phrase}
-            <span className="w-2 h-2 rounded-full bg-accent inline-block" />
+            <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" />
           </span>
         ))}
       </div>

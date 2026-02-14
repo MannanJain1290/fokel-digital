@@ -38,13 +38,13 @@ const FeaturedWork = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="work" className="py-32 bg-background" ref={ref}>
+    <section id="work" className="py-28 lg:py-36 bg-secondary" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-sm font-medium tracking-[0.3em] uppercase text-accent mb-6"
+          className="text-[11px] font-heading font-medium tracking-[0.4em] uppercase text-accent mb-4"
         >
           Selected Projects
         </motion.p>
@@ -52,12 +52,12 @@ const FeaturedWork = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-foreground mb-20"
+          className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-[1] tracking-[-0.02em] text-foreground mb-20"
         >
           Featured Work<span className="text-accent">.</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
@@ -79,24 +79,24 @@ const ProjectCard = ({
 
   const content = (
     <>
-      <div className="relative overflow-hidden bg-secondary aspect-[4/3]">
+      <div className="relative overflow-hidden bg-muted aspect-[4/3]">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
-        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
+        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0">
           <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
             <ArrowUpRight className="w-5 h-5 text-accent-foreground" />
           </div>
         </div>
       </div>
       <div className="mt-6">
-        <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+        <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground tracking-[-0.01em]">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-muted-foreground uppercase tracking-wider">
+        <p className="mt-2 text-xs font-heading text-muted-foreground uppercase tracking-[0.2em]">
           {project.category}
         </p>
       </div>
@@ -109,9 +109,9 @@ const ProjectCard = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
       className="group cursor-pointer"
     >
       <Wrapper {...(wrapperProps as any)}>{content}</Wrapper>
