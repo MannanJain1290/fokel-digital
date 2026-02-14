@@ -97,7 +97,7 @@ const StoryInNumbers = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 bg-secondary" ref={ref}>
+    <section className="py-10 md:py-16 bg-secondary" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
