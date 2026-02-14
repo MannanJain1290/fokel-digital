@@ -1,4 +1,4 @@
-import { motion, useInView, type Transition } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 import digitalMarketing from "@/assets/services/digital-marketing.png";
@@ -12,43 +12,24 @@ const services = [
     description:
       "Performance marketing, SEO, social media, and content strategies that drive measurable growth and engagement for your brand.",
     image: digitalMarketing,
-    animation: {
-      y: [0, -15, 0],
-      rotate: [0, 5, 0],
-      transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const },
-    },
   },
   {
     title: "Web Design & Development",
     description:
       "Beautiful, conversion-focused websites and digital experiences built with modern technology and meticulous attention to detail.",
     image: webDesign,
-    animation: {
-      y: [0, -10, 0],
-      scale: [1, 1.05, 1],
-      transition: { duration: 3.5, repeat: Infinity, ease: "easeInOut" as const },
-    },
   },
   {
     title: "Digital Strategy",
     description:
       "Data-driven digital roadmaps that align business goals with market opportunities, positioning your brand as the undisputed authority.",
     image: digitalStrategy,
-    animation: {
-      rotate: [0, 360],
-      transition: { duration: 12, repeat: Infinity, ease: "linear" as const },
-    },
   },
   {
     title: "Brand Identity",
     description:
       "Comprehensive brand development — from naming and visual identity to messaging frameworks that resonate with your target audience.",
     image: brandIdentity,
-    animation: {
-      y: [0, -12, 0],
-      rotate: [0, -8, 0],
-      transition: { duration: 5, repeat: Infinity, ease: "easeInOut" as const },
-    },
   },
 ];
 
@@ -124,11 +105,10 @@ const Services = () => {
               </div>
 
               <div className="flex items-center justify-center pt-8">
-                <motion.img
+                <img
                   src={service.image}
                   alt={service.title}
                   className="w-40 h-40 object-contain"
-                  animate={service.animation}
                 />
               </div>
             </motion.div>
