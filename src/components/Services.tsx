@@ -1,35 +1,26 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-import digitalMarketing from "@/assets/services/digital-marketing.png";
-import webDesign from "@/assets/services/web-design.png";
-import digitalStrategy from "@/assets/services/digital-strategy.png";
-import brandIdentity from "@/assets/services/brand-identity.png";
-
 const services = [
   {
     title: "Digital Marketing",
     description:
       "Performance marketing, SEO, social media, and content strategies that drive measurable growth and engagement for your brand.",
-    image: digitalMarketing,
   },
   {
     title: "Web Design & Development",
     description:
       "Beautiful, conversion-focused websites and digital experiences built with modern technology and meticulous attention to detail.",
-    image: webDesign,
   },
   {
     title: "Digital Strategy",
     description:
       "Data-driven digital roadmaps that align business goals with market opportunities, positioning your brand as the undisputed authority.",
-    image: digitalStrategy,
   },
   {
     title: "Brand Identity",
     description:
       "Comprehensive brand development — from naming and visual identity to messaging frameworks that resonate with your target audience.",
-    image: brandIdentity,
   },
 ];
 
@@ -93,7 +84,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="group bg-primary-foreground/5 border border-primary-foreground/10 p-6 lg:p-8 flex flex-col justify-between min-h-[400px] hover:bg-primary-foreground/10 transition-colors duration-300"
+              className="group bg-primary-foreground/5 border border-primary-foreground/10 p-6 lg:p-8 flex flex-col justify-start min-h-[280px] hover:bg-primary-foreground/10 transition-colors duration-300"
             >
               <div>
                 <h3 className="text-xl lg:text-2xl font-bold tracking-tight mb-4">
@@ -102,14 +93,6 @@ const Services = () => {
                 <p className="text-sm text-primary-foreground/60 leading-relaxed">
                   {service.description}
                 </p>
-              </div>
-
-              <div className="flex items-center justify-center pt-8">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-40 h-40 object-contain"
-                />
               </div>
             </motion.div>
           ))}
