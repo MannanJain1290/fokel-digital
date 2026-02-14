@@ -1,35 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-
-const stats = [
-  { number: 20, suffix: "+", label: "Projects Delivered" },
-  { number: 100, suffix: "%", label: "Client Satisfaction" },
-  { number: 5, suffix: "+", label: "Sectors Catered" },
-];
-
-const useCountUp = (end: number, isInView: boolean, duration = 2000) => {
-  const [count, setCount] = useState(0);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const startTime = performance.now();
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * end));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  }, [isInView, end, duration]);
-
-  return count;
-};
+import { useRef } from "react";
 
 const About = () => {
   const ref = useRef(null);
@@ -88,35 +59,8 @@ const About = () => {
             </motion.p>
           </div>
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-24 grid grid-cols-3 gap-8 border-t border-border pt-16"
-        >
-          {stats.map((stat) => (
-            <StatItem key={stat.label} stat={stat} isInView={isInView} />
-          ))}
-        </motion.div>
       </div>
     </section>
-  );
-};
-
-const StatItem = ({ stat, isInView }: { stat: (typeof stats)[0]; isInView: boolean }) => {
-  const count = useCountUp(stat.number, isInView, stat.number > 50 ? 2000 : 1500);
-
-  return (
-    <div className="text-center lg:text-left">
-      <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-        {count}{stat.suffix}
-      </p>
-      <p className="mt-2 text-sm md:text-base text-muted-foreground uppercase tracking-wider">
-        {stat.label}
-      </p>
-    </div>
   );
 };
 
