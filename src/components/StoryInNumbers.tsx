@@ -5,6 +5,7 @@ const stats = [
   { number: 20, suffix: "+", label: "Projects" },
   { number: 100, suffix: "%", label: "Client Satisfaction" },
   { number: 5, suffix: "+", label: "Sectors" },
+  { number: 2.5, suffix: "x", label: "ROI" },
 ];
 
 const DIGIT_HEIGHT = 80; // px per digit
@@ -60,17 +61,27 @@ const AnimatedNumber = ({
   suffix: string;
   delay: number;
 }) => {
-  const digits = String(number).split("").map(Number);
+  const parts = String(number).split("");
 
   return (
     <div className="flex items-center text-5xl md:text-7xl lg:text-8xl">
-      {digits.map((digit, i) => (
-        <RollingDigit
-          key={i}
-          digit={digit}
-          delay={baseDelay + i * 150}
-        />
-      ))}
+      {parts.map((part, i) =>
+        part === "." ? (
+          <span
+            key={i}
+            className="font-bold text-foreground leading-none"
+            style={{ lineHeight: `${DIGIT_HEIGHT}px` }}
+          >
+            .
+          </span>
+        ) : (
+          <RollingDigit
+            key={i}
+            digit={Number(part)}
+            delay={baseDelay + i * 150}
+          />
+        )
+      )}
       <span
         className="font-bold text-accent leading-none"
         style={{ lineHeight: `${DIGIT_HEIGHT}px` }}
@@ -105,7 +116,7 @@ const StoryInNumbers = () => {
           In Numbers<span className="text-accent">.</span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
