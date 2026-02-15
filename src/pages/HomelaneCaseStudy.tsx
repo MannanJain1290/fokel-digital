@@ -235,18 +235,18 @@ const HomelaneCaseStudy = () => {
         </motion.div>
       </section>
 
-      {/* Challenge */}
+      {/* About HomeLane */}
       <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}>
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-6">The Challenge</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-6">About HomeLane</p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-tight">
-              Breaking through in a saturated home interiors market<span className="text-accent">.</span>
+              India's leading tech-enabled home interiors brand<span className="text-accent">.</span>
             </h2>
           </motion.div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1} className="flex items-end">
             <p className="text-muted-foreground leading-relaxed text-lg">
-              HomeLane, India's leading online home interiors platform, was struggling to rank for high-intent keywords like "modular kitchen designs," "home interior cost calculator," and "2BHK interior design." Despite having a strong product offering, their organic visibility was buried on page 3–4 of Google. Competitors with weaker offerings were outranking them through aggressive content and SEO strategies. HomeLane needed a comprehensive SEO overhaul combined with a content-first approach to reclaim their rightful position at the top.
+              HomeLane has grown into India's leading tech-enabled home interiors brand with a simple promise: to make designing a home easy, personalised, and dependable. Over the years, they've had the privilege of helping 55,000+ customers shape homes they love, across 42+ cities. With 600+ expert designers and 74+ Experience Centres, HomeLane takes pride in delivering beautiful spaces that their customers are proud to call home.
             </p>
           </motion.div>
         </div>
