@@ -1,40 +1,31 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Megaphone, Code, Compass, Palette, ArrowUpRight } from "lucide-react";
+import { Target, Zap, Award, ArrowUpRight } from "lucide-react";
 
-const services = [
+const approaches = [
   {
-    title: "Digital Marketing",
+    title: "Mission-Driven",
     description:
-      "Performance marketing, SEO, social media, and content strategies that drive measurable growth and engagement for your brand.",
-    icon: Megaphone,
+      "Every project starts with a deep understanding of your purpose. We align our strategies with your core mission to create authentic, impactful digital experiences.",
+    icon: Target,
     color: "from-orange-500 to-red-500",
   },
   {
-    title: "Web Design & Development",
+    title: "Fast Execution",
     description:
-      "Beautiful, conversion-focused websites and digital experiences built with modern technology and meticulous attention to detail.",
-    icon: Code,
+      "Speed without compromise. Our agile workflows and streamlined processes ensure rapid delivery while maintaining the highest standards of quality.",
+    icon: Zap,
     color: "from-blue-500 to-cyan-500",
   },
   {
-    title: "Digital Strategy",
+    title: "Award-Winning Quality",
     description:
-      "Data-driven digital roadmaps that align business goals with market opportunities, positioning your brand as the undisputed authority.",
-    icon: Compass,
-    color: "from-green-500 to-emerald-500",
-  },
-  {
-    title: "Brand Identity",
-    description:
-      "Comprehensive brand development — from naming and visual identity to messaging frameworks that resonate with your target audience.",
-    icon: Palette,
+      "Excellence is non-negotiable. Our work consistently earns recognition for its creativity, innovation, and measurable impact on business growth.",
+    icon: Award,
     color: "from-purple-500 to-pink-500",
   },
 ];
 
-
-// Animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 60 },
   visible: (i: number) => ({
@@ -48,14 +39,13 @@ const cardVariants = {
   }),
 };
 
-const Services = () => {
+const OurApproach = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="bg-primary text-primary-foreground overflow-hidden" ref={ref}>
-      {/* Large outlined text marquee */} 
+    <section className="bg-primary text-primary-foreground overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-24">
         {/* Section label with animated line */}
         <div className="flex items-center gap-4 mb-6">
@@ -71,10 +61,10 @@ const Services = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm font-medium tracking-[0.3em] uppercase text-accent"
           >
-            What We Do
+            Our Approach
           </motion.p>
         </div>
-        
+
         {/* Animated heading */}
         <div className="overflow-hidden mb-16">
           <motion.h2
@@ -84,20 +74,20 @@ const Services = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Services<span className="text-accent">.</span>
+            How we work<span className="text-accent">.</span>
           </motion.h2>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, i) => {
-            const Icon = service.icon;
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {approaches.map((approach, i) => {
+            const Icon = approach.icon;
             const isHovered = hoveredIndex === i;
-            const number = String(i + 1).padStart(2, '0');
-            
+            const number = String(i + 1).padStart(2, "0");
+
             return (
               <motion.div
-                key={service.title}
+                key={approach.title}
                 custom={i}
                 variants={cardVariants}
                 initial="hidden"
@@ -110,11 +100,11 @@ const Services = () => {
               >
                 {/* Animated gradient background on hover */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 rounded-2xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${approach.color} opacity-0 rounded-2xl`}
                   animate={{ opacity: isHovered ? 0.1 : 0 }}
                   transition={{ duration: 0.3 }}
                 />
-                
+
                 {/* Animated border */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl border-2 border-accent"
@@ -125,58 +115,77 @@ const Services = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon and number row */}
                   <div className="flex items-start justify-between mb-6">
                     <motion.div
                       className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center"
-                      animate={{ 
+                      animate={{
                         scale: isHovered ? 1.1 : 1,
-                        backgroundColor: isHovered ? "hsl(var(--accent))" : "hsl(var(--accent) / 0.2)",
+                        backgroundColor: isHovered
+                          ? "hsl(var(--accent))"
+                          : "hsl(var(--accent) / 0.2)",
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Icon 
-                        className="w-5 h-5 transition-colors duration-300" 
-                        style={{ color: isHovered ? "hsl(var(--primary))" : "hsl(var(--accent))" }}
+                      <Icon
+                        className="w-5 h-5 transition-colors duration-300"
+                        style={{
+                          color: isHovered
+                            ? "hsl(var(--primary))"
+                            : "hsl(var(--accent))",
+                        }}
                       />
                     </motion.div>
                     <motion.span
                       className="text-sm font-medium text-primary-foreground/30"
-                      animate={{ color: isHovered ? "hsl(var(--accent))" : "hsl(var(--primary-foreground) / 0.3)" }}
+                      animate={{
+                        color: isHovered
+                          ? "hsl(var(--accent))"
+                          : "hsl(var(--primary-foreground) / 0.3)",
+                      }}
                       transition={{ duration: 0.3 }}
                     >
                       {number}
                     </motion.span>
                   </div>
-                  
-                  <motion.h3 
+
+                  <motion.h3
                     className="text-xl lg:text-2xl font-bold tracking-tight mb-4"
                     style={{ fontFamily: "var(--font-heading)" }}
-                    animate={{ color: isHovered ? "hsl(var(--accent))" : "hsl(var(--primary-foreground))" }}
+                    animate={{
+                      color: isHovered
+                        ? "hsl(var(--accent))"
+                        : "hsl(var(--primary-foreground))",
+                    }}
                     transition={{ duration: 0.3 }}
                   >
-                    {service.title}
+                    {approach.title}
                   </motion.h3>
                   <p className="text-sm text-primary-foreground/60 leading-relaxed">
-                    {service.description}
+                    {approach.description}
                   </p>
                 </div>
-                
+
                 {/* Arrow indicator */}
                 <motion.div
                   className="relative z-10 mt-6 flex items-center gap-2"
                   initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
+                  animate={{
+                    opacity: isHovered ? 1 : 0,
+                    x: isHovered ? 0 : -10,
+                  }}
                   transition={{ duration: 0.3 }}
                 >
                   <span className="text-sm font-medium text-accent">Learn more</span>
                   <ArrowUpRight className="w-4 h-4 text-accent" />
                 </motion.div>
-                
+
                 {/* Decorative corner accent */}
                 <motion.div
                   className="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-accent/10"
-                  animate={{ scale: isHovered ? 1.5 : 1, opacity: isHovered ? 0.2 : 0 }}
+                  animate={{
+                    scale: isHovered ? 1.5 : 1,
+                    opacity: isHovered ? 0.2 : 0,
+                  }}
                   transition={{ duration: 0.4 }}
                 />
               </motion.div>
@@ -188,4 +197,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default OurApproach;

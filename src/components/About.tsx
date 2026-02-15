@@ -1,12 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Target, Zap, Award } from "lucide-react";
-
-const highlights = [
-  { icon: Target, label: "Mission-Driven", value: "Purpose" },
-  { icon: Zap, label: "Fast Execution", value: "Speed" },
-  { icon: Award, label: "Award-Winning", value: "Quality" },
-];
 
 const About = () => {
   const ref = useRef(null);
@@ -108,62 +101,18 @@ const About = () => {
               </p>
             </motion.div>
             
-            {/* Highlights/Values */}
-            <motion.div
-              className="mt-12 grid grid-cols-3 gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              {highlights.map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={item.label}
-                    className="group relative p-4 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10 text-center cursor-pointer overflow-hidden"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
-                    whileHover={{ y: -4, backgroundColor: "hsl(var(--accent) / 0.1)" }}
-                  >
-                    {/* Icon */}
-                    <motion.div
-                      className="w-10 h-10 mx-auto mb-3 rounded-full bg-accent/20 flex items-center justify-center"
-                      whileHover={{ scale: 1.1, backgroundColor: "hsl(var(--accent))" }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Icon className="w-5 h-5 text-accent group-hover:text-primary transition-colors" />
-                    </motion.div>
-                    <p className="text-xs text-primary-foreground/50 uppercase tracking-wider mb-1">
-                      {item.label}
-                    </p>
-                    <p className="text-sm font-bold text-primary-foreground" style={{ fontFamily: "var(--font-heading)" }}>
-                      {item.value}
-                    </p>
-                    
-                    {/* Hover border */}
-                    <motion.div
-                      className="absolute inset-0 rounded-xl border-2 border-accent opacity-0"
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-            
             {/* Animated accent line */}
             <motion.div
-              className="mt-8 flex items-center gap-4"
+              className="mt-12 flex items-center gap-4"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.div
                 className="h-[1px] bg-gradient-to-r from-accent to-transparent flex-1"
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
-                transition={{ duration: 1, delay: 0.9 }}
+                transition={{ duration: 1, delay: 0.7 }}
                 style={{ transformOrigin: "left" }}
               />
               <span className="text-xs text-accent uppercase tracking-wider">Since 2020</span>
