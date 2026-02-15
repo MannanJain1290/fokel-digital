@@ -13,8 +13,9 @@ const projects = [
     image: work3,
     title: "HomeLane.com",
     description:
-      "Digital strategy and content creation for India's leading home interiors platform.",
-    tags: ["Digital Strategy", "Content"],
+      "SEO-driven content strategy and keyword optimisation to dominate Google rankings for India's leading home interiors platform.",
+    tags: ["Google SEO", "Content Strategy"],
+    link: "/work/homelane",
     color: "from-emerald-500/80",
     bgColor: "#ecfdf5",
   },
