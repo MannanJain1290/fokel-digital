@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.png";
+import work3 from "@/assets/work-homelane.png";
 import work4 from "@/assets/work-4.png";
 
 const projects = [
@@ -31,9 +31,9 @@ const projects = [
   },
   {
     image: work3,
-    title: "HMO Architects",
+    title: "HomeLane.com",
     description:
-      "Digital strategy and content creation for a leading architecture firm.",
+      "Digital strategy and content creation for India's leading home interiors platform.",
     tags: ["Digital Strategy", "Content"],
     color: "from-emerald-500/80",
     bgColor: "#ecfdf5",
