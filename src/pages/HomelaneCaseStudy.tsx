@@ -197,7 +197,7 @@ const HomelaneCaseStudy = () => {
             className="text-3xl md:text-4xl font-bold text-foreground tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            From page 3 to page 1 on Google<span className="text-accent">.</span>
+            Measurable growth across every channel<span className="text-accent">.</span>
           </motion.h2>
         </div>
         <motion.div
