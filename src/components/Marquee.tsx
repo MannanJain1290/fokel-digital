@@ -8,10 +8,10 @@ import wtc from "@/assets/clients/wtc.png";
 import bestdoc from "@/assets/clients/bestdoc.webp";
 
 const clients = [
-  { src: inventeron, alt: "Inventeron Technologies", height: "h-10 md:h-12" },
-  { src: onsurity, alt: "Onsurity", height: "h-8 md:h-10" },
-  { src: homelane, alt: "HomeLane.com", height: "h-10 md:h-12" },
-  { src: genes, alt: "Genes Lecoanet Hemant", height: "h-6 md:h-8" },
+  { src: inventeron, alt: "Inventeron Technologies", height: "h-20 md:h-24" },
+  { src: onsurity, alt: "Onsurity", height: "h-16 md:h-20" },
+  { src: homelane, alt: "HomeLane.com", height: "h-20 md:h-24" },
+  { src: genes, alt: "Genes Lecoanet Hemant", height: "h-12 md:h-16" },
   { src: wtc, alt: "WTC 2026", height: "h-10 md:h-12" },
   { src: bestdoc, alt: "BestDoc", height: "h-7 md:h-9" },
 ];
