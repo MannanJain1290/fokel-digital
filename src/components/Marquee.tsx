@@ -22,10 +22,10 @@ const Marquee = () => {
 
   return (
     <section
-      className="bg-primary border-y border-primary-foreground/10 overflow-hidden"
+      className="bg-background overflow-hidden"
       ref={ref}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-4">
         {/* Section label with animated line */}
         <div className="flex items-center gap-4">
           <motion.div
@@ -57,7 +57,7 @@ const Marquee = () => {
           className="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, hsl(var(--primary)) 0%, hsl(var(--primary) / 0) 100%)",
+              "linear-gradient(to right, hsl(var(--background)) 0%, hsl(var(--background) / 0) 100%)",
           }}
         />
         {/* Right fade */}
@@ -65,7 +65,7 @@ const Marquee = () => {
           className="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to left, hsl(var(--primary)) 0%, hsl(var(--primary) / 0) 100%)",
+              "linear-gradient(to left, hsl(var(--background)) 0%, hsl(var(--background) / 0) 100%)",
           }}
         />
 
