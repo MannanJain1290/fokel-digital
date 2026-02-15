@@ -17,7 +17,7 @@ const navVariants = {
     opacity: 1,
     transition: { 
       duration: 0.6, 
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       staggerChildren: 0.1,
       delayChildren: 0.3,
     }
@@ -29,7 +29,7 @@ const linkVariants = {
   visible: { 
     y: 0, 
     opacity: 1,
-    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }
   },
 };
 
@@ -39,7 +39,7 @@ const mobileMenuVariants = {
     height: 0,
     transition: {
       duration: 0.3,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       staggerChildren: 0.05,
       staggerDirection: -1,
     }
@@ -49,7 +49,7 @@ const mobileMenuVariants = {
     height: "auto",
     transition: {
       duration: 0.4,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       staggerChildren: 0.1,
       delayChildren: 0.1,
     }
