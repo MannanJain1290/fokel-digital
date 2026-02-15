@@ -1,5 +1,6 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
   const ref = useRef(null);
@@ -38,14 +39,13 @@ const Footer = () => {
         >
           {/* BRAND */}
           <div>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration, delay: delay(0.05) }}
-              className="text-2xl font-bold tracking-tight uppercase"
             >
-              Fokel<span className="text-accent">.</span>
-            </motion.p>
+              <img src={logoWhite} alt="Fokel" className="h-8 w-auto" />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
