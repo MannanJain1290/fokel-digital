@@ -167,7 +167,7 @@ const HomelaneCaseStudy = () => {
           </motion.div>
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}>
             <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Timeline</p>
-            <p className="text-foreground font-medium">6-Month Engagement — Ongoing</p>
+            <p className="text-foreground font-medium">2-Month Engagement</p>
           </motion.div>
         </div>
       </section>
