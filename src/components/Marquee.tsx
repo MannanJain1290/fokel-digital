@@ -75,7 +75,7 @@ const Marquee = () => {
             {clients.map((client, i) => (
               <div
                 key={`${client.alt}-${i}`}
-                className="flex-shrink-0 flex items-center justify-center px-2 h-14 md:h-16"
+                className="flex-shrink-0 flex items-center justify-center px-2 h-24 md:h-28"
               >
                 <img
                   src={client.src}
@@ -90,7 +90,7 @@ const Marquee = () => {
             {clients.map((client, i) => (
               <div
                 key={`dup-${client.alt}-${i}`}
-                className="flex-shrink-0 flex items-center justify-center px-2 h-14 md:h-16"
+                className="flex-shrink-0 flex items-center justify-center px-2 h-24 md:h-28"
               >
                 <img
                   src={client.src}
