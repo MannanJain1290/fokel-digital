@@ -10,14 +10,13 @@ import work4 from "@/assets/work-4.png";
 
 const projects = [
   {
-    image: work1,
-    title: "Genes Lecoanet Hemant",
+    image: work3,
+    title: "HomeLane.com",
     description:
-      "Social media marketing and brand storytelling for India's premier luxury fashion house.",
-    tags: ["Social Media", "Marketing"],
-    link: "/work/genes-lecoanet-hemant",
-    color: "from-purple-500/80",
-    bgColor: "#faf5ff",
+      "Digital strategy and content creation for India's leading home interiors platform.",
+    tags: ["Digital Strategy", "Content"],
+    color: "from-emerald-500/80",
+    bgColor: "#ecfdf5",
   },
   {
     image: work2,
@@ -30,13 +29,14 @@ const projects = [
     bgColor: "#eff6ff",
   },
   {
-    image: work3,
-    title: "HomeLane.com",
+    image: work1,
+    title: "Genes Lecoanet Hemant",
     description:
-      "Digital strategy and content creation for India's leading home interiors platform.",
-    tags: ["Digital Strategy", "Content"],
-    color: "from-emerald-500/80",
-    bgColor: "#ecfdf5",
+      "Social media marketing and brand storytelling for India's premier luxury fashion house.",
+    tags: ["Social Media", "Marketing"],
+    link: "/work/genes-lecoanet-hemant",
+    color: "from-purple-500/80",
+    bgColor: "#faf5ff",
   },
   {
     image: work4,
