@@ -12,7 +12,7 @@ const Contact = () => {
   const duration = prefersReducedMotion ? 0 : 0.8;
   const delay = (d: number) => (prefersReducedMotion ? 0 : d);
 
-  const whatsappNumber = "919876543210"; // Update with actual number
+  const whatsappNumber = "918950483522";
   const whatsappMessage = encodeURIComponent(`Hi, I'm ${name || "interested"}. I'd like to start a project.`);
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   const emailLink = `https://mail.google.com/mail/?view=cm&to=info@fokelworks.com&su=${encodeURIComponent("New Project Inquiry")}&body=${encodeURIComponent("Hi, I'd like to discuss a project.")}`;
