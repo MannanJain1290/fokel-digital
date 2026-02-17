@@ -12,17 +12,13 @@ const Contact = () => {
   const duration = prefersReducedMotion ? 0 : 0.8;
   const delay = (d: number) => (prefersReducedMotion ? 0 : d);
 
-  const whatsappNumber = "918950483522";
+  const whatsappNumber = "+918950483522";
   const whatsappMessage = encodeURIComponent(`Hi, I'm ${name || "interested"}. I'd like to start a project.`);
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   const emailLink = `https://mail.google.com/mail/?view=cm&to=info@fokelworks.com&su=${encodeURIComponent("New Project Inquiry")}&body=${encodeURIComponent("Hi, I'd like to discuss a project.")}`;
 
   return (
-    <section
-      id="contact"
-      className="relative py-32 bg-primary overflow-hidden"
-      ref={ref}
-    >
+    <section id="contact" className="relative py-32 bg-primary overflow-hidden" ref={ref}>
       {/* Ambient animated gradient background */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
@@ -30,19 +26,14 @@ const Contact = () => {
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: prefersReducedMotion ? 0 : 1.2, ease: [0.25, 0.1, 0.25, 1] }}
         style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 100%, hsl(var(--accent) / 0.1) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 50% at 50% 100%, hsl(var(--accent) / 0.1) 0%, transparent 60%)",
         }}
       />
 
       {/* subtle floating accent glow */}
       <motion.div
         className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl pointer-events-none"
-        animate={
-          prefersReducedMotion
-            ? {}
-            : { scale: [1, 1.05, 1], y: [0, -10, 0] }
-        }
+        animate={prefersReducedMotion ? {} : { scale: [1, 1.05, 1], y: [0, -10, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
@@ -93,8 +84,8 @@ const Contact = () => {
           transition={{ duration, delay: delay(0.25) }}
           className="mt-6 text-lg text-primary-foreground/70 max-w-lg mx-auto leading-relaxed"
         >
-          Let's discuss how we can transform your digital presence and
-          make your brand the undisputed authority in your niche.
+          Let's discuss how we can transform your digital presence and make your brand the undisputed authority in your
+          niche.
         </motion.p>
 
         {/* CTA Button / Form */}
@@ -120,11 +111,7 @@ const Contact = () => {
                         transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
                       }
                 }
-                whileTap={
-                  prefersReducedMotion
-                    ? {}
-                    : { scale: 0.96, transition: { duration: 0.15 } }
-                }
+                whileTap={prefersReducedMotion ? {} : { scale: 0.96, transition: { duration: 0.15 } }}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
               >
                 <span>Start a Project</span>
