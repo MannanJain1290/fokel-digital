@@ -49,15 +49,18 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="flex items-end"
+            className="flex flex-col gap-6"
           >
             <p className="text-lg md:text-xl text-primary-foreground/70 leading-relaxed">
               At Fokel, our mission is to bring your business into the market focus 
               with a bold, disruptive edge. We combine strategic thinking with creative 
               excellence to craft digital experiences that captivate audiences and drive 
-              measurable results. Our vision is to redefine the digital landscape by setting 
-              a new gold standard for B2B growth, where every brand we touch becomes the 
-              undisputed authority in its niche.
+              measurable results.
+            </p>
+            <p className="text-lg md:text-xl text-primary-foreground/70 leading-relaxed">
+              Our vision is to redefine the digital landscape by setting a new gold 
+              standard for B2B growth, where every brand we touch becomes the undisputed 
+              authority in its niche.
             </p>
           </motion.div>
         </div>

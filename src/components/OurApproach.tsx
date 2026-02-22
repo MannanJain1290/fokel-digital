@@ -27,13 +27,14 @@ const approaches = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
       duration: 0.8,
-      delay: 0.2 + i * 0.15,
+      delay: 0.1 + i * 0.15,
       ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
     },
   }),
@@ -48,28 +49,33 @@ const OurApproach = () => {
     <section className="bg-primary text-primary-foreground overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-4 pb-16 md:pt-6 md:pb-24">
         {/* Section label with animated line */}
-        <div className="flex items-center gap-4 mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="flex items-center gap-4 mb-6"
+        >
           <motion.div
             initial={{ width: 0 }}
             animate={isInView ? { width: 40 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="h-[2px] bg-accent"
           />
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             className="text-sm font-medium tracking-[0.3em] uppercase text-accent"
           >
             Our Approach
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* Animated heading */}
         <div className="overflow-hidden mb-16">
           <motion.h2
-            initial={{ y: "100%" }}
-            animate={isInView ? { y: 0 } : {}}
+            initial={{ y: "100%", opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-heading)" }}
