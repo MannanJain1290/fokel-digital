@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-<<<<<<< HEAD
 import logo from "@/assets/fokel-logo.png";
-=======
-import logo from "@/assets/logo.png";
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -14,7 +10,6 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-// Animation variants
 const navVariants = {
   hidden: { y: -100, opacity: 0 },
   visible: { 
@@ -71,7 +66,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -80,7 +74,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll to section
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
@@ -97,7 +90,6 @@ const Navbar = () => {
       });
     }
     
-    // Close mobile menu if open
     if (isOpen) setIsOpen(false);
   };
 
@@ -112,7 +104,6 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Progress bar on scroll */}
       <motion.div
         className="absolute bottom-0 left-0 h-[2px] bg-accent"
         style={{ 
@@ -126,7 +117,6 @@ const Navbar = () => {
       <div className={`max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between transition-all duration-300 ${
         isScrolled ? "h-16" : "h-20"
       }`}>
-        {/* Logo */}
         <motion.a 
           href="#" 
           className="relative group"
@@ -137,7 +127,6 @@ const Navbar = () => {
           <img src={logo} alt="Fokel" className="h-8 md:h-10 w-auto" />
         </motion.a>
 
-        {/* Desktop nav links + CTA together */}
         <motion.div 
           className="hidden md:flex items-center gap-1"
           variants={navVariants}
@@ -155,14 +144,12 @@ const Navbar = () => {
               transition={{ duration: 0.2 }}
             >
               {link.label}
-              {/* Animated underline */}
               <motion.span
                 className="absolute bottom-0 left-4 right-4 h-[2px] bg-accent rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: hoveredLink === link.label ? 1 : 0 }}
                 transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               />
-              {/* Hover background */}
               <motion.span
                 className="absolute inset-0 bg-accent/10 rounded-lg -z-10"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -175,7 +162,6 @@ const Navbar = () => {
             </motion.a>
           ))}
           
-          {/* CTA Button */}
           <motion.a
             href="#contact"
             onClick={(e) => scrollToSection(e, '#contact')}
@@ -184,7 +170,6 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            {/* Button shine effect */}
             <motion.span
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
               animate={{ x: ["-100%", "200%"] }}
@@ -202,10 +187,8 @@ const Navbar = () => {
           </motion.a>
         </motion.div>
 
-        {/* Mobile toggle */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-<<<<<<< HEAD
           className="md:hidden w-10 h-10 flex items-center justify-center"
           aria-label="Toggle menu"
           whileTap={{ scale: 0.9 }}
@@ -230,31 +213,9 @@ const Navbar = () => {
               style={{ transformOrigin: "center" }}
             />
           </div>
-=======
-          className="md:hidden flex flex-col gap-1.5 p-2 relative"
-          aria-label="Toggle menu"
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.span
-            animate={isOpen ? { rotate: 45, y: 6, backgroundColor: "hsl(var(--accent))" } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="block w-6 h-0.5 bg-foreground origin-center"
-          />
-          <motion.span
-            animate={isOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.2 }}
-            className="block w-6 h-0.5 bg-foreground"
-          />
-          <motion.span
-            animate={isOpen ? { rotate: -45, y: -6, backgroundColor: "hsl(var(--accent))" } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="block w-6 h-0.5 bg-foreground origin-center"
-          />
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
         </motion.button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -282,7 +243,6 @@ const Navbar = () => {
                     </span>
                     {link.label}
                   </span>
-                  {/* Hover line */}
                   <motion.span
                     className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-accent rounded-full"
                     whileHover={{ height: "60%" }}
@@ -291,7 +251,6 @@ const Navbar = () => {
                 </motion.a>
               ))}
               
-              {/* Mobile CTA */}
               <motion.a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
@@ -304,7 +263,6 @@ const Navbar = () => {
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
               
-              {/* Decorative element */}
               <motion.div
                 className="mt-6 pt-6 border-t border-border/50"
                 variants={mobileLinkVariants}
