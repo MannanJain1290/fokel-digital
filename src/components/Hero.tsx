@@ -11,11 +11,10 @@ const AnimatedWord = ({
   delay: number;
 }) => {
   return (
-<<<<<<< HEAD
+
     <span className="inline-block overflow-hidden px-0.5 py-2">
-=======
     <span className="inline-block overflow-hidden">
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+
       <motion.span
         className="inline-block"
         initial={{ y: "100%", opacity: 0 }}
@@ -114,11 +113,11 @@ const Hero = () => {
               <AnimatedWord delay={0.9}>Brand</AnimatedWord>
               <br />
               <AnimatedWord delay={1.0}>Into</AnimatedWord>{" "}
-<<<<<<< HEAD
+
               <span className="inline-block overflow-hidden px-0.5 py-2">
-=======
+
               <span className="inline-block overflow-hidden">
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+
                 <motion.span
                   className="inline-block italic font-normal text-accent"
                   initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
@@ -154,11 +153,11 @@ const Hero = () => {
               >
                 <Link
                   to="/#contact"
-<<<<<<< HEAD
+
                   className="inline-block bg-orange-500 text-white px-8 py-4 text-sm font-semibold uppercase tracking-wider rounded-full hover:bg-orange-600 transition-colors"
-=======
+
                   className="inline-block bg-foreground text-background px-8 py-4 text-sm font-semibold uppercase tracking-wider rounded-full hover:opacity-90 transition-opacity"
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+
                 >
                   Get in touch
                 </Link>
@@ -188,7 +187,7 @@ const Hero = () => {
                 filter: useTransform(videoBlur, (v) => `blur(${v}px)`),
               }}
             >
-<<<<<<< HEAD
+
               {/* Outer wrapper with overflow hidden for clean edges */}
               <div className="absolute inset-0 rounded-[32px] overflow-hidden">
                 {/* Glow behind video */}
@@ -222,7 +221,7 @@ const Hero = () => {
                   />
                 </motion.div>
               </div>
-=======
+              
               {/* Animated glow effect behind video */}
               <motion.div
                 className="absolute -inset-4 bg-gradient-to-br from-accent/40 via-accent/20 to-transparent rounded-[40px] -z-10"
@@ -291,7 +290,7 @@ const Hero = () => {
                   scale: useTransform(smoothProgress, [0.1, 0.3], [0.5, 1]),
                 }}
               />
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+              
             </motion.div>
           </div>
         </div>
