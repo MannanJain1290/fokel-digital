@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 96%;
+    --background: 0 0% 100%;
     --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
@@ -77,10 +77,6 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
@@ -88,34 +84,10 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
   }
-
-  /* Smooth scrolling with reduced motion preference */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-    .animate-marquee,
-    .animate-marquee-reverse {
-      animation-play-state: paused;
-    }
-  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Marquee pauses on hover for easier viewing */
-  .marquee-hover-pause:hover .animate-marquee {
-    animation-play-state: paused;
   }
 }

@@ -1,597 +1,108 @@
-import { motion, useInView, useSpring, useTransform, useMotionValue } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-homelane.png";
+import work3 from "@/assets/work-3.png";
 import work4 from "@/assets/work-4.png";
 
 const projects = [
   {
-    image: work3,
-    title: "HomeLane.com",
-    description:
-      "SEO-driven content strategy and keyword optimisation to dominate Google rankings for India's leading home interiors platform.",
-    tags: ["Google SEO", "Content Strategy"],
-    link: "/work/homelane",
-    color: "from-emerald-500/80",
-    bgColor: "#ecfdf5",
+    image: work1,
+    title: "Genes Lecoanet Hemant",
+    category: "Social Media & Creative Design",
   },
   {
     image: work2,
     title: "ITA-AITES WTC 2026",
-    description:
-      "Event marketing, branding and digital strategy for the World Tunnel Congress 2026.",
-    tags: ["Event Marketing", "Branding"],
-    link: "/work/wtc-2026",
-    color: "from-blue-500/80",
-    bgColor: "#eff6ff",
+    category: "Event Marketing & Branding",
   },
   {
-    image: work1,
-    title: "Genes Lecoanet Hemant",
-    description:
-      "Social media marketing and brand storytelling for India's premier luxury fashion house.",
-    tags: ["Social Media", "Marketing"],
-    link: "/work/genes-lecoanet-hemant",
-    color: "from-purple-500/80",
-    bgColor: "#faf5ff",
+    image: work3,
+    title: "HMO Architects",
+    category: "Digital Strategy & Content",
   },
   {
     image: work4,
     title: "Blue Leopard Media",
-    description:
-      "Complete brand identity and web design for an emerging media company.",
-    tags: ["Branding", "Website"],
-    link: "/work/blue-leopard-media",
-    color: "from-orange-500/80",
-    bgColor: "#fff7ed",
+    category: "Brand Identity & Web Design",
   },
 ];
 
 const FeaturedWork = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-<<<<<<< HEAD
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-=======
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
-
-  const getBgColor = () => {
-    if (hoveredIndex === null) return "hsl(var(--background))";
-    return projects[hoveredIndex].bgColor;
-  };
 
   return (
-    <motion.section
-      id="work"
-<<<<<<< HEAD
-      className="relative py-16 md:py-24 overflow-hidden"
-=======
-      className="relative py-24 overflow-hidden"
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
-      ref={ref}
-      animate={{ backgroundColor: getBgColor() }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
-<<<<<<< HEAD
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
-        <motion.div
+    <section id="work" className="py-32 bg-background" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-6"
+          className="text-sm font-medium tracking-[0.3em] uppercase text-accent mb-6"
         >
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: 40 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="h-[2px] bg-accent"
-          />
-          <p className="text-sm font-medium tracking-[0.3em] uppercase text-accent">
-            Selected Projects
-          </p>
-        </motion.div>
-
-        <motion.div
+          Selected Projects
+        </motion.p>
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="overflow-hidden mb-10 md:mb-16"
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-foreground mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
-            Featured Work<span className="text-accent">.</span>
-          </h2>
-        </motion.div>
+          Featured Work<span className="text-accent">.</span>
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-=======
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section label with animated line */}
-        <div className="flex items-center gap-4 mb-6">
-          <motion.div
-            initial={{ width: 0 }}
-            animate={isInView ? { width: 40 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="h-[2px] bg-accent"
-          />
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm font-medium tracking-[0.3em] uppercase text-accent"
-          >
-            Selected Projects
-          </motion.p>
-        </div>
-
-        {/* Main heading with split animation */}
-        <div className="overflow-hidden mb-16">
-          <motion.h2
-            initial={{ y: "100%" }}
-            animate={isInView ? { y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Featured Work<span className="text-accent">.</span>
-          </motion.h2>
-
-        </div>
-
-        {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((project, i) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={i}
-              isInView={isInView}
-              onHoverStart={() => setHoveredIndex(i)}
-              onHoverEnd={() => setHoveredIndex(null)}
-<<<<<<< HEAD
-              activeCard={activeCard}
-              setActiveCard={setActiveCard}
-=======
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
-            />
+            <ProjectCard key={project.title} project={project} index={i} />
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
 const ProjectCard = ({
   project,
   index,
-  isInView,
-  onHoverStart,
-  onHoverEnd,
-<<<<<<< HEAD
-  activeCard,
-  setActiveCard,
-=======
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
 }: {
   project: (typeof projects)[0];
   index: number;
-  isInView: boolean;
-  onHoverStart: () => void;
-  onHoverEnd: () => void;
-<<<<<<< HEAD
-  activeCard: number | null;
-  setActiveCard: (index: number | null) => void;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isActive = activeCard === index;
-=======
-}) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const Wrapper = project.link ? Link : "div";
-  const wrapperProps = project.link ? { to: project.link } : {};
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-<<<<<<< HEAD
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [5, -5]), {
-    stiffness: 300,
-    damping: 30,
-  });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-5, 5]), {
-=======
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), {
-    stiffness: 300,
-    damping: 30,
-  });
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), {
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
-    stiffness: 300,
-    damping: 30,
-  });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) / rect.width);
-    y.set((e.clientY - centerY) / rect.height);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    onHoverStart();
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    onHoverEnd();
-    x.set(0);
-    y.set(0);
-  };
-
-<<<<<<< HEAD
-  const handleTouchStart = () => {
-    setActiveCard(isActive ? null : index);
-  };
-
-  const projectNumber = String(index + 1).padStart(2, "0");
-
-  const cardContent = (
-    <>
-      <motion.div
-        className="relative overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] bg-secondary"
-        style={{
-          rotateX: isHovered ? rotateX : 0,
-          rotateY: isHovered ? rotateY : 0,
-          transformStyle: "preserve-3d",
-        }}
-        animate={{
-          scale: isActive ? 0.98 : 1,
-          boxShadow: isHovered || isActive
-            ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(var(--accent-rgb, 139, 92, 246), 0.15)"
-            : "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
-        }}
-        transition={{ duration: 0.4 }}
-      >
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.15 }}
+      className="group cursor-pointer"
+    >
+      <div className="relative overflow-hidden bg-secondary aspect-[4/3]">
         <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
-          animate={{
-            scale: isHovered || isActive ? 1.1 : 1,
-          }}
-          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-
-        <motion.div
-          className={`absolute inset-0 bg-gradient-to-t ${project.color} to-transparent`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered || isActive ? 1 : 0 }}
-          transition={{ duration: 0.4 }}
-        />
-
-        <motion.div
-          className="absolute inset-0 bg-black/50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered || isActive ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
-
-        <motion.div
-          className="absolute inset-0 flex flex-col justify-end p-4 md:p-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered || isActive ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.p
-            className="text-white/90 text-sm leading-relaxed line-clamp-2"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{
-              y: isHovered || isActive ? 0 : 20,
-              opacity: isHovered || isActive ? 1 : 0,
-            }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-          >
-            {project.description}
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="absolute top-3 md:top-5 right-3 md:right-5"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{
-            opacity: isHovered || isActive ? 1 : 0,
-            scale: isHovered || isActive ? 1 : 0.5,
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white flex items-center justify-center shadow-lg">
-            <ArrowUpRight className="w-4 md:w-5 h-4 md:h-5 text-foreground" />
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-500" />
+        <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+          <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+            <ArrowUpRight className="w-5 h-5 text-accent-foreground" />
           </div>
-        </motion.div>
-
-        <motion.div
-          className="absolute top-3 md:top-5 left-3 md:left-5 flex flex-wrap gap-1.5 md:gap-2 max-w-[70%]"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: isHovered || isActive ? 1 : 0, x: isHovered || isActive ? 0 : -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] md:text-xs font-medium tracking-wider uppercase text-white bg-white/20 backdrop-blur-sm px-2 md:px-3 py-1 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-1 bg-accent origin-left"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: isActive ? 1 : 0 }}
-          transition={{ duration: 0.4 }}
-        />
-      </motion.div>
-
-      <div className="mt-4 md:mt-6 flex items-start justify-between">
-        <motion.div
-          className="flex-1 pr-4"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <h3 className="text-xl md:text-2xl font-semibold text-foreground tracking-[-0.02em]">
-            {project.title}
-          </h3>
-          <motion.div
-            className="h-[2px] bg-accent mt-2 origin-left"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.15 }}
-            style={{ width: "50%" }}
-          />
-        </motion.div>
-
-        <motion.span
-          className="text-sm font-medium text-muted-foreground"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 + 0.2 }}
-        >
-          <span className="text-accent font-bold">{projectNumber}</span>
-        </motion.span>
+        </div>
       </div>
-
-      <p className="mt-2 md:hidden text-sm text-muted-foreground line-clamp-2">
-        {project.description}
-      </p>
-    </>
-  );
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-=======
-  const projectNumber = String(index + 1).padStart(2, "0");
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 80 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 1,
-        delay: index * 0.15,
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
-<<<<<<< HEAD
-      onTouchStart={handleTouchStart}
-      className="group cursor-pointer"
-      style={{ perspective: 1000 }}
-    >
-      {project.link ? (
-        <Link to={project.link} className="block">
-          {cardContent}
-        </Link>
-      ) : (
-        <div className="block">
-          {cardContent}
-        </div>
-      )}
-=======
-      className="group cursor-pointer"
-      style={{ perspective: 1000 }}
-    >
-      <Wrapper {...(wrapperProps as any)} className="block">
-        <motion.div
-          className="relative overflow-hidden rounded-2xl aspect-[16/10] bg-secondary"
-          style={{
-            rotateX: isHovered ? rotateX : 0,
-            rotateY: isHovered ? rotateY : 0,
-            transformStyle: "preserve-3d",
-          }}
-          animate={{
-            boxShadow: isHovered
-              ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(var(--accent-rgb, 139, 92, 246), 0.1)"
-              : "0 10px 30px -10px rgba(0, 0, 0, 0.1)",
-          }}
-          transition={{ duration: 0.4 }}
-        >
-          <motion.img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            animate={{
-              scale: isHovered ? 1.15 : 1,
-              x: isHovered ? x.get() * 10 : 0,
-              y: isHovered ? y.get() * 10 : 0,
-            }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          />
-
-          <motion.div
-            className={`absolute inset-0 bg-gradient-to-t ${project.color} to-transparent`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
-          />
-
-          <motion.div
-            className="absolute inset-0 bg-black/40"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
-          />
-
-          <motion.div
-            className="absolute inset-0 flex flex-col justify-end p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.p
-              className="text-white/90 text-sm md:text-base leading-relaxed"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{
-                y: isHovered ? 0 : 20,
-                opacity: isHovered ? 1 : 0,
-              }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              {project.description}
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="absolute top-5 right-5"
-            initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
-            animate={{
-              opacity: isHovered ? 1 : 0,
-              scale: isHovered ? 1 : 0.5,
-              rotate: isHovered ? 0 : -45,
-            }}
-            transition={{ duration: 0.4, ease: "backOut" }}
-          >
-            <motion.div
-              className="w-12 h-12 rounded-full bg-white flex items-center justify-center"
-              animate={{
-                boxShadow: isHovered
-                  ? "0 10px 30px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.3)"
-                  : "0 4px 15px rgba(0,0,0,0.1)",
-              }}
-            >
-              <ArrowUpRight className="w-5 h-5 text-foreground" />
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="absolute top-5 left-5 flex flex-wrap gap-2"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            {project.tags.map((tag, i) => (
-              <motion.span
-                key={tag}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{
-                  opacity: isHovered ? 1 : 0,
-                  y: isHovered ? 0 : -10,
-                }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-                className="text-xs font-medium tracking-wider uppercase text-white bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full"
-              >
-                {tag}
-              </motion.span>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        <div className="mt-6 flex items-start justify-between">
-          <motion.div
-            className="overflow-hidden flex-1"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-          >
-            <motion.h3
-              className="text-2xl md:text-3xl font-semibold text-foreground tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-heading)" }}
-              animate={{ y: isHovered ? -2 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-
-              <span className="inline-flex items-center gap-3">
-                {project.title}
-                <motion.span
-                  className="inline-block text-accent text-lg"
-                  animate={{
-                    x: isHovered ? 8 : 0,
-                    opacity: isHovered ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  →
-                </motion.span>
-              </span>
-            </motion.h3>
-
-            <motion.div
-              className="h-[2px] bg-accent mt-2 origin-left"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.4 }}
-              style={{ width: "60%" }}
-            />
-          </motion.div>
-
-          <motion.span
-            className="text-sm font-medium text-muted-foreground tracking-wider"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: index * 0.15 + 0.4 }}
-          >
-            <motion.span
-              animate={{
-                color: isHovered
-                  ? "hsl(var(--accent))"
-                  : "hsl(var(--muted-foreground))",
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {projectNumber}
-            </motion.span>
-          </motion.span>
-        </div>
-      </Wrapper>
->>>>>>> 87f75fca9afb605d6bc16848b8da0dac107fb7ff
+      <div className="mt-6">
+        <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+          {project.title}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground uppercase tracking-wider">
+          {project.category}
+        </p>
+      </div>
     </motion.div>
   );
 };
