@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import HomelaneCaseStudy from "./pages/HomelaneCaseStudy";
 import WtcCaseStudy from "./pages/WtcCaseStudy";
 import GenesLecoanetCaseStudy from "./pages/GenesLecoanetCaseStudy";
-import Blueleopardmedia from "./pages/Blueleopardmedia";
+import SabPropertiesCaseStudy from "./pages/SabPropertiesCaseStudy";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/work/homelane" element={<HomelaneCaseStudy />} />
           <Route path="/work/wtc-2026" element={<WtcCaseStudy />} />
           <Route path="/work/genes-lecoanet-hemant" element={<GenesLecoanetCaseStudy />} />
-          <Route path="/work/blue-leopard-media" element={<Blueleopardmedia />} />
+          <Route path="/work/sab-properties" element={<SabPropertiesCaseStudy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

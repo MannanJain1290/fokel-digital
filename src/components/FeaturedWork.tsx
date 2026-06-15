@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-homelane.png";
-import work4 from "@/assets/work-4.png";
+import workSab from "@/assets/work-sab.png";
 
 const projects = [
   {
@@ -40,14 +40,14 @@ const projects = [
     bgColor: "#faf5ff",
   },
   {
-    image: work4,
-    title: "Blue Leopard Media",
+    image: workSab,
+    title: "SAB Properties",
     description:
-      "High-performance website design and comprehensive brand identity for a disruptive digital media company.",
-    tags: ["Web Design", "UI/UX", "Brand Identity"],
-    link: "/work/blue-leopard-media",
-    color: "from-orange-500/80",
-    bgColor: "#fff7ed",
+      "Direct-to-client commercial property directory and automated B2B leasing pipeline for one of Delhi's premier estate agencies.",
+    tags: ["Commercial Real Estate", "B2B Lead Gen", "Web Directory"],
+    link: "/work/sab-properties",
+    color: "from-cyan-500/80",
+    bgColor: "#ecfeff",
   },
 ];
 

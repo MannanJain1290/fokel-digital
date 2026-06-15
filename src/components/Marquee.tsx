@@ -7,6 +7,7 @@ import genes from "@/assets/clients/genes.png";
 import onsurity from "@/assets/clients/onsurity.png";
 import inventeron from "@/assets/clients/inventeron.png";
 import hmo from "@/assets/clients/hmo.png";
+import sabProperties from "@/assets/clients/sab-properties.png";
 
 const clients = [
   { src: homelane, alt: "HomeLane", height: "h-14 md:h-20" },
@@ -15,6 +16,7 @@ const clients = [
   { src: onsurity, alt: "Onsurity", height: "h-14 md:h-20" },
   { src: inventeron, alt: "Inventeron", height: "h-14 md:h-20" },
   { src: hmo, alt: "HMO Architects", height: "h-14 md:h-20" },
+  { src: sabProperties, alt: "SAB Properties", height: "h-14 md:h-20" },
 ];
 
 const Marquee = () => {

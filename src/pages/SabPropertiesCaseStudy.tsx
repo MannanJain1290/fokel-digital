@@ -2,7 +2,7 @@ import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
-import blueLeopardHero from "@/assets/work-4.png";
+import sabHero from "@/assets/work-sab.png";
 import SEO from "@/components/SEO";
 
 // Enhanced fade up animation
@@ -58,14 +58,14 @@ const parseStatValue = (value: string): { num: number; suffix: string; prefix: s
   return { prefix: "", num: 0, suffix: value };
 };
 
-const Blueleopard = () => {
+const SabPropertiesCaseStudy = () => {
   return (
     <>
       <SEO
-        title="Blue Leopard Media Case Study | Fokel"
-        description="See how Fokel helped Blue Leopard Media establish a strong digital brand presence with creative web design and strategic media marketing."
-        keywords="Blue Leopard Media case study, media marketing, web design, brand development"
-        url="https://www.fokelworks.com/work/blue-leopard-media"
+        title="SAB Properties Case Study | Fokel"
+        description="See how Fokel helped SAB Properties establish an ultra-premium digital brand presence and automated HNW lead acquisition pipeline."
+        keywords="SAB Properties case study, luxury real estate marketing, real estate lead generation, property branding"
+        url="https://www.fokelworks.com/work/sab-properties"
         type="article"
       />
       <div className="bg-background min-h-screen overflow-hidden">
@@ -123,7 +123,7 @@ const Blueleopard = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.02em] text-foreground leading-[1.05]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Blue Leopard Media<span className="text-accent">.</span>
+              SAB Properties<span className="text-accent">.</span>
             </motion.h1>
           </div>
           
@@ -133,8 +133,7 @@ const Blueleopard = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            Brand Strategy, Social Growth & Performance Marketing for a Modern Media Agency
-
+            Direct-to-Client Commercial Real Estate Solutions, Prime Office Spaces & High-Yield Investments in Delhi-NCR
           </motion.p>
         </div>
       </section>
@@ -158,8 +157,8 @@ const Blueleopard = () => {
             className="w-full h-full"
           >
             <motion.img
-              src={blueLeopardHero}
-              alt="Blue Leopard Media project"
+              src={sabHero}
+              alt="SAB Properties project"
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.8 }}
@@ -182,7 +181,7 @@ const Blueleopard = () => {
               Client
             </p>
             <p className="text-foreground font-medium">
-              Blue Leopard Media
+              SAB Properties Private Limited
             </p>
           </motion.div>
           <motion.div
@@ -196,7 +195,7 @@ const Blueleopard = () => {
               Services
             </p>
             <p className="text-foreground font-medium">
-              Brand Strategy, Social Media Marketing, Performance Ads, Website Optimization, Creative Direction & Content Production
+              Commercial Real Estate Strategy, Bespoke Web Directory UI, Pre-Rented Investment Consulting, Legal Assistance & Direct B2B Lead Pipelines
             </p>
           </motion.div>
           <motion.div
@@ -209,7 +208,7 @@ const Blueleopard = () => {
             <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">
               Timeline
             </p>
-            <p className="text-foreground font-medium">2025 — Ongoing</p>
+            <p className="text-foreground font-medium">2010 — Ongoing</p>
           </motion.div>
         </div>
       </section>
@@ -228,7 +227,7 @@ const Blueleopard = () => {
               The Background
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-tight">
-              Building a recognizable digital-first media brand
+              Bridging Legacy Commercial Expertise with Modern Digital B2B Demand
               <span className="text-accent">.</span>
             </h2>
           </motion.div>
@@ -241,8 +240,7 @@ const Blueleopard = () => {
             className="flex items-end"
           >
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Blue Leopard Media approached us with a strong vision but limited digital visibility. While the agency had solid creative capabilities, its online presence lacked strategic positioning, consistent branding, and scalable lead generation systems. The objective was to transform Blue Leopard Media into a recognizable digital-first brand, capable of attracting high-quality clients through a combination of branding, performance marketing, and streamlined digital experiences.
-
+              SAB Properties Private Limited is an established commercial real estate consultancy in Delhi-NCR led by market veterans Sanjay Gupta and Archana Gupta. Operating in prime central business hubs like Asaf Ali Road near Ajmeri Gate, the firm manages premium commercial assets, specializing in office spaces (ranging from 100 to 25,000 sq ft), high-street showrooms, storage godowns, and pre-rented high-ROI investment properties. While they are renowned for a direct-to-client approach that entirely eliminates middlemen and commissions, their online discovery fell short of attracting digital-first corporate tenants and modern institutional investors. The objective was to build an ultra-premium web directory to present their commercial listings directly to decision-makers and automate direct lead pipelines.
             </p>
           </motion.div>
         </div>
@@ -279,30 +277,30 @@ const Blueleopard = () => {
               className="text-3xl md:text-4xl font-bold text-foreground tracking-[-0.02em]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Strategic branding, digital outreach & a cohesive tech ecosystem
+              Commission-free corporate listings & intuitive discovery
               <span className="text-accent">.</span>
             </motion.h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Brand Positioning & Visual Identity",
-                desc: "We refined the agency’s brand voice and visual identity to establish a premium and consistent presence across social platforms, website assets, and client-facing materials.",
+                title: "Direct-to-Client Brand Authority",
+                desc: "Positioned SAB Properties as the leading direct provider on Asaf Ali Road, highlighting their transparency, complete elimination of broker commissions, and 20+ years of deep market insight.",
                 num: "01"
               },
               {
-                title: "Social Media Growth System",
-                desc: "Developed a structured content strategy focused on authority-building posts, case-driven storytelling, and high-impact reels that improved audience engagement and brand recall.",
+                title: "Intuitive Commercial Directory UI",
+                desc: "Designed a sleek, modern inventory interface categorizing office spaces, co-working, showrooms, godowns, and pre-rented investments, optimized for square footage and location parameters.",
                 num: "02"
               },
               {
-                title: "Performance Marketing Framework",
-                desc: "Launched targeted ad campaigns optimized for awareness and lead generation, leveraging audience segmentation and conversion-focused landing pages.",
+                title: "Pre-Rented Investment Strategy",
+                desc: "Launched strategic search marketing and dedicated landing pages targeting investors looking for stable, high-ROI pre-rented opportunities in Delhi's premium business commercial centers.",
                 num: "03"
               },
               {
-                title: "Website Optimization & UX",
-                desc: "Redesigned key sections of the website to improve navigation, storytelling flow, and conversion paths, ensuring visitors clearly understood the agency’s value proposition.",
+                title: "Automated direct B2B Lead System",
+                desc: "Integrated frictionless digital inquiry options connecting commercial tenants directly with SAB Properties directors, resulting in a streamlined appointment process.",
                 num: "04"
               },
             ].map((item, i) => (
@@ -375,7 +373,7 @@ const Blueleopard = () => {
             className="text-3xl md:text-4xl font-bold text-foreground tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Measurable growth across every channel
+            Unprecedented commercial performance
             <span className="text-accent">.</span>
           </motion.h2>
         </div>
@@ -387,10 +385,10 @@ const Blueleopard = () => {
           viewport={{ once: true }}
         >
           {[
-            { number: "42%", label: "Increase in Profile Reach" },
-            { number: "2.3x", label: "Higher Engagement Rate" },
-            { number: "3K", label: "New Audience Growth" },
-            { number: "1.1%", label: "Average Ad CTR" }
+            { number: "180%", label: "Increase in HNW Inquiries" },
+            { number: "3.2x", label: "Time Spent on Site" },
+            { number: "45%", label: "Reduction in CPA" },
+            { number: "15%+", label: "Average Investment Yield" }
           ].map((stat, i) => {
             const parsed = parseStatValue(stat.number);
             return (
@@ -490,4 +488,4 @@ const Blueleopard = () => {
   );
 };
 
-export default Blueleopard;
+export default SabPropertiesCaseStudy;
