@@ -122,12 +122,13 @@ const Testimonials = () => {
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          <div className="relative bg-background rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg shadow-foreground/5 border border-border/50">
-            <div className="absolute top-6 right-6 md:top-8 md:right-8 text-accent/10">
-              <Quote className="w-20 h-20 md:w-28 md:h-28" />
+          <div className="relative bg-background rounded-3xl p-6 md:p-12 lg:p-16 shadow-lg shadow-foreground/5 border border-border/50">
+            <div className="absolute top-4 right-4 md:top-8 md:right-8 text-accent/10 pointer-events-none">
+              <Quote className="w-16 h-16 md:w-28 md:h-28" />
             </div>
 
-            <div className="relative z-10 min-h-[200px] md:min-h-[180px]">
+            {/* Content — no fixed height, grows with text */}
+            <div className="relative z-10">
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={current}
@@ -140,23 +141,23 @@ const Testimonials = () => {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.3 },
                   }}
-                  className="absolute inset-0 flex flex-col justify-between"
+                  className="flex flex-col gap-6"
                 >
-                  <p className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed text-foreground/90 mb-8 text-pretty">
+                  <p className="text-base md:text-xl lg:text-2xl font-medium leading-relaxed text-foreground/90 text-pretty">
                     "{testimonials[current].quote}"
                   </p>
                   
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center">
-                      <span className="text-accent font-bold text-lg">
+                    <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 rounded-full bg-accent/10 flex items-center justify-center">
+                      <span className="text-accent font-bold text-base md:text-lg">
                         {testimonials[current].initials}
                       </span>
                     </div>
                     <div>
-                      <p className="text-lg font-semibold text-foreground">
+                      <p className="text-base md:text-lg font-semibold text-foreground">
                         {testimonials[current].name}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs md:text-sm text-muted-foreground">
                         {testimonials[current].role}
                       </p>
                     </div>

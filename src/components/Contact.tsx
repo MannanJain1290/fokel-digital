@@ -1,19 +1,15 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef, useState } from "react";
-import { MessageCircle, Mail } from "lucide-react";
+import { useRef } from "react";
+import { Mail } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const prefersReducedMotion = useReducedMotion();
-  const [name] = useState("");
 
   const duration = prefersReducedMotion ? 0 : 0.8;
   const delay = (d: number) => (prefersReducedMotion ? 0 : d);
 
-  const whatsappNumber = "+918950483522";
-  const whatsappMessage = encodeURIComponent(`Hi, I'm ${name || "interested"}. I'd like to start a project.`);
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   const emailLink = `https://mail.google.com/mail/?view=cm&to=info@fokelworks.com&su=${encodeURIComponent("New Project Inquiry")}&body=${encodeURIComponent("Hi, I'd like to discuss a project.")}`;
 
   return (
@@ -56,11 +52,7 @@ const Contact = () => {
           <motion.h2
             initial={{ y: "100%" }}
             animate={isInView ? { y: 0 } : {}}
-            transition={{
-              duration: 0.8,
-              delay: delay(0.1),
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
+            transition={{ duration: 0.8, delay: delay(0.1), ease: [0.25, 0.1, 0.25, 1] }}
             className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-primary-foreground"
             style={{ fontFamily: "var(--font-heading)" }}
           >
@@ -78,8 +70,7 @@ const Contact = () => {
           transition={{ duration, delay: delay(0.25) }}
           className="mt-6 text-lg text-primary-foreground/70 max-w-lg mx-auto leading-relaxed"
         >
-          Let's discuss how we can transform your digital presence and make your brand the undisputed authority in your
-          niche.
+          Let's discuss how we can transform your digital presence and make your brand the undisputed authority in your niche.
         </motion.p>
 
         <motion.div
@@ -88,38 +79,16 @@ const Contact = () => {
           transition={{ duration, delay: delay(0.4) }}
           className="mt-12 flex justify-center"
         >
-          <motion.div
+          <motion.a
+            href={emailLink}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1], delay: delay(0.5) }}
-            className="w-full max-w-md"
+            className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground px-8 py-4 text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
           >
-            <h3
-              className="text-xl font-bold text-primary-foreground mb-6 text-center"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Reach out to us
-            </h3>
-
-            <div className="flex flex-col gap-3">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-[hsl(142,70%,45%)] text-white px-6 py-3.5 text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Send Message on WhatsApp
-              </a>
-              <a
-                href={emailLink}
-                className="inline-flex items-center justify-center gap-3 bg-accent text-accent-foreground px-6 py-3.5 text-sm font-semibold rounded-full hover:opacity-90 transition-opacity"
-              >
-                <Mail className="w-4 h-4" />
-                Email
-              </a>
-            </div>
-          </motion.div>
+            <Mail className="w-4 h-4" />
+            Email Us
+          </motion.a>
         </motion.div>
       </div>
     </section>
