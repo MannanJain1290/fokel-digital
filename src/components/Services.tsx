@@ -6,6 +6,8 @@ import {
   Target,
   Palette
 } from "lucide-react";
+import { Tilt } from "@/components/ui/Tilt";
+import { DepthText } from "@/components/ui/DepthText";
 
 const services = [
   {
@@ -90,7 +92,7 @@ const Services = () => {
           className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16"
         >
           <h2 className="heading-section text-foreground max-w-xl">
-            Crafting digital experiences that <span className="text-accent">transform</span> brands
+            Crafting digital experiences that <DepthText text="transform" className="text-accent inline-block font-semibold" glowColor="rgba(255, 107, 20, 0.45)" /> brands
           </h2>
           <p className="text-muted-foreground max-w-md lg:text-right">
             We combine strategic thinking with creative excellence to deliver results that exceed expectations.
@@ -103,51 +105,51 @@ const Services = () => {
             const isHovered = hoveredIndex === i;
 
             return (
-              <motion.div
-                key={service.title}
-                custom={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative bg-background border border-border/50 rounded-2xl p-8 transition-all duration-500 cursor-pointer overflow-hidden"
-                whileHover={{ y: -8 }}
-              >
+              <Tilt key={service.title} max={8} className="h-full">
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0`}
-                  animate={{ opacity: isHovered ? 0.05 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                <div className="relative z-10">
+                  custom={i}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="group relative bg-background border border-border/50 rounded-2xl p-8 transition-all duration-500 cursor-pointer overflow-hidden h-full"
+                >
                   <motion.div
-                    className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-8 transition-all duration-300"
-                    animate={{
-                      scale: isHovered ? 1.1 : 1,
-                    }}
-                  >
-                    <Icon className="w-6 h-6 text-foreground" />
-                  </motion.div>
+                    className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0`}
+                    animate={{ opacity: isHovered ? 0.05 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
 
-                  <p className="text-xs font-medium tracking-wider uppercase text-accent mb-2">
-                    {service.subtitle}
-                  </p>
-                  
-                  <h3 className="heading-card text-foreground mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="body-regular text-muted-foreground">
-                    {service.description}
-                  </p>
-                </div>
+                  <div className="relative z-10">
+                    <motion.div
+                      className="w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-8 transition-all duration-300"
+                      animate={{
+                        scale: isHovered ? 1.1 : 1,
+                      }}
+                    >
+                      <Icon className="w-6 h-6 text-foreground" />
+                    </motion.div>
 
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-                />
-              </motion.div>
+                    <p className="text-xs font-medium tracking-wider uppercase text-accent mb-2">
+                      {service.subtitle}
+                    </p>
+                    
+                    <h3 className="heading-card text-foreground mb-4">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="body-regular text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                  />
+                </motion.div>
+              </Tilt>
             );
           })}
         </div>

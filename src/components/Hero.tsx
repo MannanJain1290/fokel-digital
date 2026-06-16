@@ -4,12 +4,14 @@ import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroVideo from "@/assets/hero-video.mp4";
 import bgVideo from "@/assets/bg-video.mp4";
+import { Magnetic } from "@/components/ui/Magnetic";
+import { Tilt } from "@/components/ui/Tilt";
 
-const AnimatedWord = ({ 
-  children, 
-  delay 
-}: { 
-  children: string; 
+const AnimatedWord = ({
+  children,
+  delay
+}: {
+  children: string;
   delay: number;
 }) => {
   return (
@@ -18,8 +20,8 @@ const AnimatedWord = ({
         className="inline-block"
         initial={{ y: "100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ 
-          duration: 0.8, 
+        transition={{
+          duration: 0.8,
           delay,
           ease: [0.25, 0.1, 0.25, 1]
         }}
@@ -42,7 +44,7 @@ const Hero = () => {
       sessionStorage.setItem('hasSeenPageReveal', 'true');
     }
   }, []);
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
@@ -57,7 +59,7 @@ const Hero = () => {
   const videoScale = useTransform(smoothProgress, [0, 0.5], [1, 0.8]);
   const videoY = useTransform(smoothProgress, [0, 0.5], [0, 80]);
   const videoOpacity = useTransform(smoothProgress, [0, 0.6, 0.8], [1, 1, 0]);
-  
+
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
       {/* Full-screen background video */}
@@ -75,7 +77,7 @@ const Hero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.65) 100%)",
+            "linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%), linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.75) 100%)",
           zIndex: 1,
         }}
       />
@@ -126,8 +128,8 @@ const Hero = () => {
                   className="inline-block text-accent"
                   initial={{ y: "100%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ 
-                    duration: 1, 
+                  transition={{
+                    duration: 1,
                     delay: 1.1,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
@@ -152,24 +154,29 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex flex-wrap items-center gap-4"
             >
-              <Link
-                to="/#contact"
-                className="btn-primary group"
-              >
-                Start a Project
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              <Magnetic strength={0.22} range={70}>
+                <Link
+                  to="/#contact"
+                  className="btn-primary group"
                 >
-                  <ArrowRight className="w-4 h-4" />
-                </motion.span>
-              </Link>
-              <Link
-                to="/#work"
-                className="btn-ghost"
-              >
-                View our work
-              </Link>
+                  Start a Project
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.span>
+                </Link>
+              </Magnetic>
+              <Magnetic strength={0.18} range={60}>
+                <Link
+                  to="/#work"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white px-6 py-3 text-sm font-medium transition-all duration-300 group relative"
+                >
+                  View our work
+                  <span className="absolute bottom-2 left-6 right-6 h-px bg-white/40 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </Link>
+              </Magnetic>
             </motion.div>
           </div>
 
@@ -177,10 +184,10 @@ const Hero = () => {
             ref={videoContainerRef}
             initial={{ opacity: 0, scale: 0.9, y: 60 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ 
-              duration: 1.2, 
-              delay: 0.8, 
-              ease: [0.25, 0.1, 0.25, 1] 
+            transition={{
+              duration: 1.2,
+              delay: 0.8,
+              ease: [0.25, 0.1, 0.25, 1]
             }}
             className="relative"
             style={{
@@ -191,7 +198,7 @@ const Hero = () => {
           >
             <div className="relative aspect-[4/5] max-h-[85vh] mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-b from-accent/20 via-transparent to-transparent rounded-[3rem] blur-2xl opacity-60" />
-              
+
               <motion.div
                 className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl shadow-accent/10"
                 whileHover={{ scale: 1.02 }}
@@ -203,7 +210,7 @@ const Hero = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.5 }}
                 />
-                
+
                 <video
                   src={heroVideo}
                   autoPlay
@@ -213,23 +220,25 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   title="Fokel Digital Studio - Creative Branding and SEO Process"
                 />
-                
+
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </motion.div>
-              
-              <motion.div
-                className="absolute -bottom-6 -right-6 bg-card rounded-2xl p-6 shadow-xl border border-border/50"
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
-              >
-                <p className="text-sm font-medium text-foreground mb-1">Latest Project</p>
-                <p className="text-xs text-muted-foreground">HomeLane SEO Strategy</p>
-                <div className="mt-3 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500" />
-                  <span className="text-xs text-muted-foreground">+98% Traffic</span>
-                </div>
-              </motion.div>
+
+              <Tilt className="absolute -bottom-6 -right-6 z-20" max={15}>
+                <motion.div
+                  className="bg-card rounded-2xl p-6 shadow-xl border border-border/50 cursor-pointer"
+                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1.8 }}
+                >
+                  <p className="text-sm font-medium text-foreground mb-1">Latest Project</p>
+                  <p className="text-xs text-muted-foreground">HomeLane SEO Strategy</p>
+                  <div className="mt-3 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className="text-xs text-muted-foreground">+98% Traffic</span>
+                  </div>
+                </motion.div>
+              </Tilt>
             </div>
           </motion.div>
         </div>

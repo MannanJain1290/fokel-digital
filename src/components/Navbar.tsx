@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import logo from "@/assets/fokel-logo.png";
+import logoBlack from "@/assets/fokel-logo-black.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -13,21 +14,29 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 50);
+      // Hero section is min-h-screen — consider "past hero" at 85% of viewport height
+      setIsOverHero(scrollY < window.innerHeight * 0.85);
     };
+
+    // Set initial state in case page is already scrolled on mount
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const navbarHeight = isScrolled ? 64 : 80;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
@@ -35,52 +44,97 @@ const Navbar = () => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
-    
+
     if (isOpen) setIsOpen(false);
   };
 
+  // When over hero: transparent + white text. When past hero: solid bg + normal text.
+  const navBg = isOverHero
+    ? "bg-transparent"
+    : isScrolled
+      ? "bg-background/95 backdrop-blur-lg shadow-sm shadow-foreground/5"
+      : "bg-background/95 backdrop-blur-lg";
+
+  const linkColor = isOverHero
+    ? "text-white/80 hover:text-white"
+    : "text-foreground/70 hover:text-foreground";
+
+  const hoverBg = isOverHero ? "bg-white/10" : "bg-secondary";
+
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-lg shadow-sm shadow-foreground/5" 
-          : "bg-transparent"
-      }`}
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      <div className={`max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between transition-all duration-300 ${
-        isScrolled ? "h-16" : "h-20 lg:h-24"
-      }`}>
-        <motion.a 
-          href="#" 
+      {/* Subtle top gradient scrim only when over hero for readability */}
+      <AnimatePresence>
+        {isOverHero && (
+          <motion.div
+            key="hero-scrim"
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%)",
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      <div
+        className={`relative max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between transition-all duration-300 ${isScrolled && !isOverHero ? "h-16" : "h-20 lg:h-24"
+          }`}
+      >
+        {/* Logo — smoothly crossfades between black logo (hero) and original logo (rest) */}
+        <motion.a
+          href="#"
           className="relative group"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <img src={logo} alt="Fokel" className="h-8 md:h-9 w-auto" />
+          <div className="relative h-8 md:h-9 w-auto">
+            {/* Black logo — visible over hero video */}
+            <motion.img
+              src={logoBlack}
+              alt="Fokel"
+              className="h-8 md:h-9 w-auto absolute top-0 left-0"
+              animate={{ opacity: isOverHero ? 1 : 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            />
+            {/* Original logo — visible after hero */}
+            <motion.img
+              src={logo}
+              alt="Fokel"
+              className="h-8 md:h-9 w-auto"
+              animate={{ opacity: isOverHero ? 0 : 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            />
+          </div>
         </motion.a>
 
-        <motion.div 
-          className="hidden lg:flex items-center gap-2"
-        >
+        {/* Desktop nav */}
+        <div className="hidden lg:flex items-center gap-2">
           {navLinks.map((link) => (
             <motion.a
               key={link.label}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="relative px-5 py-2.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors cursor-pointer rounded-full"
+              className={`relative px-5 py-2.5 text-sm font-medium transition-colors duration-300 cursor-pointer rounded-full ${linkColor}`}
               onMouseEnter={() => setHoveredLink(link.label)}
               onMouseLeave={() => setHoveredLink(null)}
               whileHover={{ y: -1 }}
             >
               {hoveredLink === link.label && (
                 <motion.div
-                  className="absolute inset-0 bg-secondary rounded-full"
+                  className={`absolute inset-0 rounded-full ${hoverBg}`}
                   layoutId="navbar-hover"
                   transition={{ duration: 0.2 }}
                 />
@@ -88,10 +142,11 @@ const Navbar = () => {
               <span className="relative z-10">{link.label}</span>
             </motion.a>
           ))}
-          
+
+          {/* CTA button — original styling */}
           <motion.a
             href="#contact"
-            onClick={(e) => scrollToSection(e, '#contact')}
+            onClick={(e) => scrollToSection(e, "#contact")}
             className="relative ml-4 bg-foreground text-background px-6 py-2.5 text-sm font-semibold rounded-full overflow-hidden group cursor-pointer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -106,21 +161,22 @@ const Navbar = () => {
               </motion.span>
             </span>
           </motion.a>
-        </motion.div>
+        </div>
 
+        {/* Mobile menu button */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden w-11 h-11 flex items-center justify-center rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+          className={`lg:hidden w-11 h-11 flex items-center justify-center rounded-full transition-colors ${isOverHero
+            ? "bg-white/15 hover:bg-white/25 text-white"
+            : "bg-secondary hover:bg-secondary/80 text-foreground"
+            }`}
           whileTap={{ scale: 0.95 }}
         >
-          {isOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
+          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </motion.button>
       </div>
 
+      {/* Mobile drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -146,10 +202,10 @@ const Navbar = () => {
                   {link.label}
                 </motion.a>
               ))}
-              
+
               <motion.a
                 href="#contact"
-                onClick={(e) => scrollToSection(e, '#contact')}
+                onClick={(e) => scrollToSection(e, "#contact")}
                 className="mt-6 btn-primary w-full justify-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -158,7 +214,7 @@ const Navbar = () => {
                 Get in Touch
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
-              
+
               <motion.div
                 className="mt-8 pt-6 border-t border-border/50"
                 initial={{ opacity: 0 }}

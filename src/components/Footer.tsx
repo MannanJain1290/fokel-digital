@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Mail, Linkedin, Instagram, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/logo-white.png";
+import logo from "@/assets/fokel-logo-black.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

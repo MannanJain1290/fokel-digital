@@ -2,6 +2,8 @@ import { motion, useInView, useSpring, useTransform, useMotionValue } from "fram
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { DepthText } from "@/components/ui/DepthText";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -97,7 +99,7 @@ const FeaturedWork = () => {
           className="overflow-hidden mb-10 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
-            Featured Work<span className="text-accent">.</span>
+            Featured <DepthText text="Work" className="text-foreground inline-block font-semibold" glowColor="rgba(255, 107, 20, 0.45)" /><span className="text-accent">.</span>
           </h2>
         </motion.div>
 
@@ -283,7 +285,7 @@ const ProjectCardContent = ({
       </motion.div>
 
       <motion.div
-        className="absolute top-3 md:top-5 right-3 md:right-5"
+        className="absolute top-3 md:top-5 right-3 md:right-5 z-20 pointer-events-auto"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{
           opacity: isHovered ? 1 : 0,
@@ -291,9 +293,11 @@ const ProjectCardContent = ({
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white flex items-center justify-center shadow-lg">
-          <ArrowUpRight className="w-4 md:w-5 h-4 md:h-5 text-foreground" />
-        </div>
+        <Magnetic strength={0.4} range={45}>
+          <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white flex items-center justify-center shadow-lg">
+            <ArrowUpRight className="w-4 md:w-5 h-4 md:h-5 text-foreground" />
+          </div>
+        </Magnetic>
       </motion.div>
 
       <motion.div
