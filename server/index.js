@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import * as xlsx from 'xlsx';
+import xlsx from 'xlsx';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
