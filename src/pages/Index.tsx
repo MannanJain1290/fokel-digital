@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import StoryInNumbers from "@/components/StoryInNumbers";
 import About from "@/components/About";
-import OurApproach from "@/components/OurApproach";
+import HowWeWork from "@/components/HowWeWork";
 import Services from "@/components/Services";
 import FeaturedWork from "@/components/FeaturedWork";
 import Testimonials from "@/components/Testimonials";
@@ -13,6 +13,9 @@ import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import NeuralNetworkCanvas from "@/components/ui/NeuralNetworkCanvas";
+import GlassLensCursor from "@/components/ui/GlassLensCursor";
 
 const Index = () => {
   return (
@@ -25,12 +28,14 @@ const Index = () => {
         type="website"
       />
       <div className="bg-background">
+        <NeuralNetworkCanvas />
+        <GlassLensCursor />
         <Navbar />
         <Hero />
         <Marquee />
         <StoryInNumbers />
         <About />
-        <OurApproach />
+        <HowWeWork />
         <Services />
         
         <FeaturedWork />
@@ -40,6 +45,7 @@ const Index = () => {
         <Newsletter />
         <Contact />
         <Footer />
+        <ScrollToTopButton />
       </div>
     </>
   );

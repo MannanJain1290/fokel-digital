@@ -80,7 +80,7 @@ const OurApproach = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            How we work<span className="text-accent">.</span>
+            How we work
           </motion.h2>
         </div>
 

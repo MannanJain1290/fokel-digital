@@ -2,6 +2,9 @@ import { motion, useInView, useSpring, useTransform, useMotionValue } from "fram
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
+import { DepthText } from "@/components/ui/DepthText";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
@@ -17,7 +20,8 @@ const projects = [
     tags: ["B2B SEO", "Content Marketing", "Growth Strategy"],
     link: "/work/homelane",
     color: "from-emerald-500/80",
-    bgColor: "#ecfdf5",
+    bgColorLight: "#ffffff",
+    bgColorDark: "#0a1f15",
   },
   {
     image: work2,
@@ -27,7 +31,8 @@ const projects = [
     tags: ["Event Marketing", "Digital Strategy", "Branding"],
     link: "/work/wtc-2026",
     color: "from-blue-500/80",
-    bgColor: "#eff6ff",
+    bgColorLight: "#ffffff",
+    bgColorDark: "#0a1220",
   },
   {
     image: work1,
@@ -37,7 +42,8 @@ const projects = [
     tags: ["Luxury Marketing", "Social Media", "Performance"],
     link: "/work/genes-lecoanet-hemant",
     color: "from-purple-500/80",
-    bgColor: "#faf5ff",
+    bgColorLight: "#ffffff",
+    bgColorDark: "#100a1f",
   },
   {
     image: workSab,
@@ -47,7 +53,8 @@ const projects = [
     tags: ["Commercial Real Estate", "B2B Lead Gen", "Web Directory"],
     link: "/work/sab-properties",
     color: "from-cyan-500/80",
-    bgColor: "#ecfeff",
+    bgColorLight: "#ffffff",
+    bgColorDark: "#071518",
   },
 ];
 
@@ -55,10 +62,13 @@ const FeaturedWork = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   const getBgColor = () => {
     if (hoveredIndex === null) return "hsl(var(--background))";
-    return projects[hoveredIndex].bgColor;
+    const p = projects[hoveredIndex];
+    return isDark ? p.bgColorDark : p.bgColorLight;
   };
 
   return (
@@ -97,7 +107,7 @@ const FeaturedWork = () => {
           className="overflow-hidden mb-10 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground">
-            Featured Work<span className="text-accent">.</span>
+            Featured <DepthText text="Work" className="text-foreground inline-block font-semibold" glowColor="rgba(255, 107, 20, 0.45)" /><span className="text-accent">.</span>
           </h2>
         </motion.div>
 
@@ -283,7 +293,7 @@ const ProjectCardContent = ({
       </motion.div>
 
       <motion.div
-        className="absolute top-3 md:top-5 right-3 md:right-5"
+        className="absolute top-3 md:top-5 right-3 md:right-5 z-20 pointer-events-auto"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{
           opacity: isHovered ? 1 : 0,
@@ -291,9 +301,11 @@ const ProjectCardContent = ({
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white flex items-center justify-center shadow-lg">
-          <ArrowUpRight className="w-4 md:w-5 h-4 md:h-5 text-foreground" />
-        </div>
+        <Magnetic strength={0.4} range={45}>
+        <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-white dark:bg-zinc-800 flex items-center justify-center shadow-lg">
+            <ArrowUpRight className="w-4 md:w-5 h-4 md:h-5 text-foreground" />
+          </div>
+        </Magnetic>
       </motion.div>
 
       <motion.div
