@@ -82,7 +82,7 @@ const HomelaneCaseStudy = () => {
         url="https://www.fokelworks.com/work/homelane"
         type="article"
       />
-      <div className="bg-background min-h-screen overflow-hidden text-foreground">
+      <div className="dark bg-background min-h-screen overflow-hidden text-foreground">
         <NeuralNetworkCanvas />
         <GlassLensCursor />
         <Navbar />

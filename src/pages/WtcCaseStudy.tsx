@@ -73,7 +73,7 @@ const WtcCaseStudy = () => {
         url="https://www.fokelworks.com/work/wtc-2026"
         type="article"
       />
-      <div className="bg-background min-h-screen overflow-hidden">
+      <div className="dark bg-background min-h-screen overflow-hidden text-foreground">
         <NeuralNetworkCanvas />
         <GlassLensCursor />
         <Navbar />

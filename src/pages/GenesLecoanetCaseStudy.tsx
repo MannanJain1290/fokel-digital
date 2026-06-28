@@ -73,7 +73,7 @@ const GenesLecoanetCaseStudy = () => {
         url="https://www.fokelworks.com/work/genes-lecoanet-hemant"
         type="article"
       />
-      <div className="bg-background min-h-screen overflow-hidden">
+      <div className="dark bg-background min-h-screen overflow-hidden text-foreground">
         <NeuralNetworkCanvas />
         <GlassLensCursor />
         <Navbar />

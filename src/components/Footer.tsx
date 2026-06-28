@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Mail, Linkedin, Instagram, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/fokel-logo-black.png";
+import logo from "@/assets/fokel-logo.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative bg-foreground text-background overflow-hidden border-t border-accent"
+      className="relative bg-zinc-950 text-white overflow-hidden border-t border-accent"
       ref={ref}
     >
       {/* Subtle background glows */}
@@ -42,14 +42,14 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <img src={logo} alt="Fokel" className="h-10 w-auto mb-3" />
-              <p className="text-xs text-background/50 mb-6 font-medium tracking-wide">
+              <p className="text-xs text-white/50 mb-6 font-medium tracking-wide">
                 Strategic Design. Digital Growth.
               </p>
-              <h3 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-background leading-tight mb-4 tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
+              <h3 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
                 Ready to bring your brand into <br className="hidden sm:inline" />
                 <span className="text-accent">focus?</span>
               </h3>
-              <p className="text-background/60 leading-relaxed max-w-xl mb-8">
+              <p className="text-white/60 leading-relaxed max-w-xl mb-8">
                 Let's discuss how we can transform your digital presence and make your brand the undisputed authority in your niche.
               </p>
               <div className="flex flex-col items-start">
@@ -60,7 +60,7 @@ const Footer = () => {
                   Start a Project
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="text-xs text-background/40 mt-3 font-medium">
+                <p className="text-xs text-white/40 mt-3 font-medium">
                   No commitment. Just a conversation.
                 </p>
               </div>
@@ -72,7 +72,7 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-semibold uppercase tracking-wider text-background/40 mb-6 border-l-2 border-accent pl-3"
+              className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-6 border-l-2 border-accent pl-3"
             >
               Navigation
             </motion.p>
@@ -84,7 +84,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.15 + i * 0.05 }}
-                  className="text-left text-background/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
+                  className="text-left text-white/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
                 >
                   {link}
                 </motion.button>
@@ -97,7 +97,7 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-semibold uppercase tracking-wider text-background/40 mb-6 border-l-2 border-accent pl-3"
+              className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-6 border-l-2 border-accent pl-3"
             >
               Connect
             </motion.p>
@@ -108,7 +108,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.15 }}
-                  className="inline-flex items-center gap-3 text-background/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-center gap-3 text-white/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
                 >
                   <Mail className="w-5 h-5 shrink-0" />
                   info@fokelworks.com
@@ -118,7 +118,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.17 }}
-                  className="inline-flex items-center gap-3 text-background/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-center gap-3 text-white/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
                 >
                   <Phone className="w-5 h-5 shrink-0" />
                   +91 89504 83522
@@ -127,7 +127,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.19 }}
-                  className="inline-flex items-start gap-3 text-background/70 transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-start gap-3 text-white/70 transition-all duration-300 hover:translate-x-1"
                 >
                   <MapPin className="w-5 h-5 shrink-0 mt-1" />
                   <span className="text-sm leading-relaxed">A77, Basement, A Block,<br />East of Kailash, New Delhi 110065</span>
@@ -142,7 +142,7 @@ const Footer = () => {
               />
 
               <div className="flex flex-col gap-4">
-                <p className="text-xs font-bold uppercase tracking-widest text-background/30 mb-1">
+                <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">
                   Socials
                 </p>
                 <motion.a
@@ -152,7 +152,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="inline-flex items-center gap-3 text-background/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-center gap-3 text-white/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
                 >
                   <Linkedin className="w-5 h-5" />
                   LinkedIn
@@ -164,7 +164,7 @@ const Footer = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.25 }}
-                  className="inline-flex items-center gap-3 text-background/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
+                  className="inline-flex items-center gap-3 text-white/70 hover:text-accent transition-all duration-300 hover:translate-x-1"
                 >
                   <Instagram className="w-5 h-5" />
                   Instagram
@@ -185,14 +185,14 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col md:flex-row justify-between items-center gap-4"
         >
-          <p className="text-sm text-background/40">
+          <p className="text-sm text-white/40">
             © 2026 Fokel. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link to="/privacy-policy" className="text-sm text-background/40 hover:text-accent transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-white/40 hover:text-accent transition-colors">
               Privacy Policy
             </Link>
-            <p className="text-sm text-background/30 italic">
+            <p className="text-sm text-white/30 italic">
               Crafted with precision in India
             </p>
           </div>
