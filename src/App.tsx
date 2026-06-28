@@ -11,27 +11,29 @@ import GenesLecoanetCaseStudy from "./pages/GenesLecoanetCaseStudy";
 import SabPropertiesCaseStudy from "./pages/SabPropertiesCaseStudy";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { ThemeProvider } from "next-themes";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/work/homelane" element={<HomelaneCaseStudy />} />
-          <Route path="/work/wtc-2026" element={<WtcCaseStudy />} />
-          <Route path="/work/genes-lecoanet-hemant" element={<GenesLecoanetCaseStudy />} />
-          <Route path="/work/sab-properties" element={<SabPropertiesCaseStudy />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+            <Route path="/" element={<Index />} />
+            <Route path="/work/homelane" element={<HomelaneCaseStudy />} />
+            <Route path="/work/wtc-2026" element={<WtcCaseStudy />} />
+            <Route path="/work/genes-lecoanet-hemant" element={<GenesLecoanetCaseStudy />} />
+            <Route path="/work/sab-properties" element={<SabPropertiesCaseStudy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
   </QueryClientProvider>
 );
 

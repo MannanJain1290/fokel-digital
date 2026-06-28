@@ -1,8 +1,7 @@
 import { motion, useInView, useSpring, useTransform, useMotionValue } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useTheme } from "next-themes";
 import { DepthText } from "@/components/ui/DepthText";
 import { Magnetic } from "@/components/ui/Magnetic";
 
@@ -62,8 +61,15 @@ const FeaturedWork = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => setIsDark(document.documentElement.classList.contains("dark"));
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   const getBgColor = () => {
     if (hoveredIndex === null) return "hsl(var(--background))";

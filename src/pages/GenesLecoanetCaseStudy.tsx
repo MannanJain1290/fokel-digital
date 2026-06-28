@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import genesHero from "@/assets/work-1.jpg";
 import SEO from "@/components/SEO";
+import NeuralNetworkCanvas from "@/components/ui/NeuralNetworkCanvas";
+import GlassLensCursor from "@/components/ui/GlassLensCursor";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 // Enhanced fade up animation
 const fadeUp = {
@@ -69,29 +74,9 @@ const GenesLecoanetCaseStudy = () => {
         type="article"
       />
       <div className="bg-background min-h-screen overflow-hidden">
-      {/* Back nav */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center">
-          <Link
-            to="/"
-            className="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider"
-          >
-            <motion.span
-              className="inline-block"
-              whileHover={{ x: -4 }}
-              transition={{ duration: 0.2 }}
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </motion.span>
-            Back
-          </Link>
-        </div>
-      </motion.div>
+        <NeuralNetworkCanvas />
+        <GlassLensCursor />
+        <Navbar />
 
       {/* Hero */}
       <section className="pt-32 pb-20">
@@ -483,6 +468,8 @@ const GenesLecoanetCaseStudy = () => {
           </div>
         </motion.div>
       </section>
+      <Footer />
+      <ScrollToTopButton />
     </div>
     </>
   );

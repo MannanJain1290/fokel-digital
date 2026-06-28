@@ -9,6 +9,10 @@ const Footer = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const scrollToSection = (href: string) => {
+    if (window.location.pathname !== "/") {
+      window.location.href = "/" + href;
+      return;
+    }
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
 
